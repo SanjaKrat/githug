@@ -1,0 +1,3138 @@
+[33mcommit eb52ed90dd988d0bdd5ea39ba6543223d74a904a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Oleksandr Krat <oleksandrkrat@gmail.com>
+Date:   Fri Aug 6 20:34:32 2021 +0300
+
+    Level 56
+
+[33mcommit a712bd56ce2b50d92910aff54964b216c3dff302[m
+Merge: f36bdf3 9a739d3
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Tue Jul 27 09:18:00 2021 +0100
+
+    Merge pull request #292 from stdtom/ci-new-versions
+    
+    Lift CI on new versions
+
+[33mcommit 9a739d34a17e8cb4c8e8cee38f3a7f84af9105f9[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 23:13:25 2021 +0200
+
+    Remove locking of RubyGems to version 2.1.11
+
+[33mcommit 13f9f1f0e1c5e9464027b1023ae9e70e3a653a02[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 23:12:34 2021 +0200
+
+    Remove Ruby versions unsupported on Ubuntu 20.04
+
+[33mcommit a251d1bc45497a303e145e42079326f2f9a7faa0[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 23:03:12 2021 +0200
+
+    Lift CI on new versions
+    
+    - new ci distro (Ubuntu 20.04 instead of 16.04
+    - newer Ruby versions
+
+[33mcommit f830b1b9931f9580c801d42b104739ac5d7c63f9[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 22:22:12 2021 +0200
+
+    Removing old Ruby versions (1.8.7 and 1.9.2) from CI
+    
+    Versions have been end-of-life for more than 6 years and causing CI to fail for more
+    than 2 years now.
+
+[33mcommit c7a3e021076bad6a74ed5600022612384870bb4e[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 22:12:16 2021 +0200
+
+    Revert "Listing the levels, it show the solved levels in green and the pending ones in red. (#264)"
+    
+    This reverts commit 69b6a7816ba4f27d27e4ddec075cef7f25a9c909.
+
+[33mcommit e71c4c10dbafffee86007ffbe70da81d95a2a87f[m
+Author: stdtom <stdtom@gmx.net>
+Date:   Mon Jul 26 22:11:45 2021 +0200
+
+    Revert "Checkout file from branch (#287)"
+    
+    This reverts commit f36bdf339d631e1319ccfa90255ac658b4f90052.
+
+[33mcommit f36bdf339d631e1319ccfa90255ac658b4f90052[m
+Author: Conner Nilsen <connernilsen@gmail.com>
+Date:   Tue Dec 22 03:59:29 2020 -0800
+
+    Checkout file from branch (#287)
+    
+    * Add checkout_file_from_branch level
+    
+    * Add integration test for checkout_file_from_branch and add level to
+    levels array
+    
+    * Write to files using File.write instead of echo
+
+[33mcommit c8cdaef72b15c20bf78bfc5025083c7d8bf911d8[m
+Author: Ajoe-T <62591849+Ajoe-T@users.noreply.github.com>
+Date:   Tue Nov 10 20:30:56 2020 +0530
+
+    Added more clear hint (#283)
+
+[33mcommit 95ab0a8b31e21b2fb3f19e45f11e48bc78d06e4e[m
+Author: Devidas Gaikwad <devidasgaikwad@outlook.com>
+Date:   Tue Nov 10 20:30:18 2020 +0530
+
+    Updating hint message (#285)
+
+[33mcommit a760da2d713b4ba432b8ffbe509a030cb6411d85[m
+Author: Germain Chazot <g.chazot@gmail.com>
+Date:   Thu Sep 17 11:00:05 2020 +0100
+
+    Fix rename_commit level solution (#276)
+    
+    Fixes #258
+    
+    The problem is that `repo.commits` as an array is not necessarily ordered by parent commits. So `repo.commits[1]` could virtually be any commit in the repo.
+    As an exemple, here is what I get:
+    ```ruby
+      puts repo.commits[0].message
+      puts repo.commits[1].message
+      puts repo.commits[2].message
+    ```
+    -> BEFORE `rebase -i`:
+    ```
+    Initial commit
+    First coommit
+    Second commit
+    ```
+    -> AFTER `rebase -i` and renaming the middle commit:
+    ```
+    Second commit
+    Initial commit
+    First commit
+    ```
+    
+    This fix ensures that we look at the parent of the latest commit.
+
+[33mcommit a387bb37ff98447d60f51a55cc26352f7ea93c4d[m
+Author: Mayuri Lahane <mlahane@redhat.com>
+Date:   Mon Jun 8 15:35:40 2020 +0530
+
+    Suggestion for level_8 Description (#274)
+
+[33mcommit e6c3f8d357c03db1c82d9e4c56d30ca81850bbed[m
+Author: Jesse Hurdle <Jesse.hurdle@gmail.com>
+Date:   Mon Nov 11 05:14:40 2019 -0500
+
+    Make hint more helpful (lvl 20) (#267)
+    
+     (closes issue #265)
+
+[33mcommit 69b6a7816ba4f27d27e4ddec075cef7f25a9c909[m
+Author: Víctor Navarro <VictorMNA@users.noreply.github.com>
+Date:   Tue Oct 1 09:45:43 2019 +0200
+
+    Listing the levels, it show the solved levels in green and the pending ones in red. (#264)
+
+[33mcommit 2db7ee6082d34af23cf37329db7b3a35b795ee9a[m
+Author: Oliver Sartun <oliver@8fit.com>
+Date:   Tue Sep 3 09:51:20 2019 +0200
+
+    Fix git help command in hint (#263)
+    
+    The hint says to use `git gitignore --help`, but that doesn't work.
+    
+    ```
+    git: 'gitignore' is not a git command. See 'git --help'.
+    ```
+    
+    Instead, the command that does work is `git help gitignore`.
+
+[33mcommit d701a11f779fe483887d0c1c7f23a643123ced08[m
+Author: Jack Aponte <jack@palantetech.com>
+Date:   Sat Jun 15 03:32:51 2019 -0700
+
+    Clarify that reset task can be used to select a specific level in short desc (#259)
+
+[33mcommit 28775b4807494418e5d38a793ce94c4760b516ac[m
+Author: BreakBB <33514570+BreakBB@users.noreply.github.com>
+Date:   Fri Apr 26 08:45:28 2019 +0200
+
+    Fix various typos. Remove double blanks. Rewrite find_old_branch (#257)
+
+[33mcommit f7f17b2e649de843e3a31efd62abf1f82a4d5ffc[m
+Author: vikrant-pune <vikrant-pune@users.noreply.github.com>
+Date:   Fri Apr 12 12:20:13 2019 +0530
+
+    Adding strip for string (#254)
+    
+    * Adding strip on solution for level 30
+    
+    * Adding strip on solution for level 30
+    
+    his commit fixes #253
+
+[33mcommit 09f95a0e9ec1178217d4b764b2e16f31e4635c3b[m
+Author: duianto <duianto@users.noreply.github.com>
+Date:   Thu Feb 14 09:02:25 2019 +0100
+
+    chore(fetch): remove trailing whitespace (#250)
+
+[33mcommit 6b4c41d8080409e154889209b7e41aaf53c6e2a6[m
+Author: duianto <duianto@users.noreply.github.com>
+Date:   Mon Feb 11 08:58:48 2019 +0100
+
+    fix(number_of_files_commit): ask for files not changes (#247)
+
+[33mcommit f54aa2517e247727809ad3d60710824d4fadb8cf[m
+Author: Lane <i@zhanglintc.co>
+Date:   Mon Dec 10 15:49:21 2018 +0800
+
+    #45: merge_squash => #47: merge_squash (#246)
+
+[33mcommit d1de80a3d7b102691b03528a0d8be94d365b1026[m
+Author: tkhamis <39271287+tkhamis@users.noreply.github.com>
+Date:   Wed Jul 11 21:17:38 2018 +0300
+
+    Imporoved the hint of the  test grep (#240)
+    
+    * Imporoved the hint of the  test grep
+    
+    * Improved hint
+
+[33mcommit 2544b01546d00165cd7f7059b965be85e1e15006[m
+Author: elstamey <elstamey@gmail.com>
+Date:   Thu Nov 2 04:36:24 2017 -0400
+
+    revised the language of the prompt for push level (#236)
+
+[33mcommit d763aa99f5bf02deb6d029194fae0620a71bd1e5[m
+Author: Yaroslav <savchuk.y@i.ua>
+Date:   Tue Jul 25 18:15:16 2017 +0300
+
+    First level hint improvement (#233)
+
+[33mcommit c92e35dd4ce82d7a41f8abd5529a76a4d167c957[m
+Author: 可可熊 <cocobear.cn@gmail.com>
+Date:   Thu Apr 6 03:13:02 2017 -0500
+
+    fix(Githug): stdout buffer problem (#227) (#228)
+
+[33mcommit 392c357f237049e870ee2d560b78543d1c5838df[m
+Author: Michael Kebe <michael.kebe@gmail.com>
+Date:   Thu Apr 6 10:09:27 2017 +0200
+
+    feat(rm): print the hint on multiple lines (#231)
+
+[33mcommit f91d50539b182969065cfec8ce19b1465f344a46[m
+Author: Sobolev Nikita <mail@sobolevn.me>
+Date:   Thu Apr 6 11:08:29 2017 +0300
+
+    docs(README.md): use svg badges (#230)
+
+[33mcommit 1225f668447d5f3af4f9d3e63728f6dfcb8d3eb6[m
+Author: EdJoPaTo <EdJoPaTo@users.noreply.github.com>
+Date:   Thu Jan 19 12:02:59 2017 +0100
+
+    fix(submodule): fix minor typo (#226)
+
+[33mcommit f184f34176651ef5f7ef89a588b6cfa06c8bf008[m
+Author: C.W <compwron@users.noreply.github.com>
+Date:   Sat Dec 3 04:53:49 2016 -0800
+
+    chore(.gemspec): remove commented out dependency (#222)
+    
+    * Remove commented-out dependency in gemspec
+
+[33mcommit 0cc18515bf6606d44ec631262532fb8da4b7fa6e[m
+Author: kk <guyskk@qq.com>
+Date:   Sat Dec 3 06:52:25 2016 -0600
+
+    docs(README.md): fix typo stacktrace -> stack trace (#224)
+
+[33mcommit 109597c078ff479bfdf545187c5d8acebe00cb37[m[33m ([m[1;33mtag: v0.5.0[m[33m)[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Nov 13 19:06:28 2016 +0000
+
+    chore(version): bump to 0.5.0
+    
+    This is a minor release due to the inclusion of the rebase_onto level.
+
+[33mcommit c543aefad5c8bf148a0cafe6b1d780ffcd0f6b81[m
+Author: Janis Vitols <itvinky@gmail.com>
+Date:   Sun Nov 13 21:05:34 2016 +0200
+
+    feat(rebase_onto): add level (#221)
+
+[33mcommit fd38c65bce7843f6c13fce26b5963a6d6cdaba9c[m
+Author: Yunfeng Wang <vra@users.noreply.github.com>
+Date:   Fri Sep 30 15:29:07 2016 +0800
+
+    fix(ProfileSpec): typo in profile test (#220)
+    
+    `acces` to `access`
+
+[33mcommit 5ce73ae1ade538544b979ac7c25b62cc7d06fda6[m
+Merge: d8a3995 1189d35
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Sep 30 08:28:12 2016 +0100
+
+    Merge pull request #218 from seanosaur/patch-1
+    
+    Clarify Level 54 Description Wording
+
+[33mcommit 1189d3515caf245d638d62583dfeab3b009b9763[m
+Author: Sean Oldham <seanosaur@me.com>
+Date:   Wed Aug 17 15:04:46 2016 -0500
+
+    Clarify Description Wording
+    
+    Instead of "Do this without cloning the repo..." I've changed it to "Do this without manually cloning the repo..."
+    
+    When using submodule, it does clone the repo. I was initially confused by the phrasing in the description and hope this helps make it more clear.
+
+[33mcommit d8a39953bfaeb6c02bd297d3f57bdfae985db7be[m
+Author: pallxk <github@pallxk.com>
+Date:   Wed Aug 10 15:30:44 2016 +0800
+
+    chore(gemspec): specify required rake version (#217)
+    
+    rake v11 drops support for ruby version < 1.9.3
+
+[33mcommit 8931d2faf358ddb9ca52b9cb3d206cb204a1d027[m
+Author: pallxk <github@pallxk.com>
+Date:   Sat Aug 6 19:18:56 2016 +0800
+
+    fix(ignore): clarify level requirements (#216)
+
+[33mcommit af332cef894d6cb96be84abae89893d64908f346[m
+Author: Lane <zhanglintc623@gmail.com>
+Date:   Fri Aug 5 00:14:01 2016 +0800
+
+    Update "githug reset" to allow numbers (#215)
+
+[33mcommit 8f79c63c989624dd52223164ac582571f90a66d2[m[33m ([m[1;33mtag: v0.4.8[m[33m)[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Jan 21 21:57:59 2016 +0000
+
+    chore(version): bump to 0.4.8
+
+[33mcommit 8869b2599e396c6ddb9e1a782e75e54713050346[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Jan 21 21:56:26 2016 +0000
+
+    fix(push): specify the files to copy
+    
+    This prevents the copy recursing if the tmp directory exists in the
+    git_hug workspace.
+    
+    Fixes #201 and #188
+
+[33mcommit ec4a8e41c02108e7af7bba6c05fe439a6bd23cfe[m[33m ([m[1;33mtag: v0.4.7[m[33m)[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Jan 14 22:05:14 2016 +0000
+
+    chore(version): bump to 0.4.7
+
+[33mcommit 44289d291c2cc8102229e0fccd83c592fbaa9d98[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Mon Jan 11 18:05:41 2016 +0000
+
+    fix(checkout_tag_over_branch): only show commit message in solution
+    
+    The solution now uses a format flag to only show the commit message.
+    This fixes an issue if the users name contains UTF-8 characters.
+
+[33mcommit 0c09f4cb8e65275af0f66f0ab83346bd04be4835[m[33m ([m[1;33mtag: v0.4.6[m[33m)[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 8 17:57:00 2016 +0000
+
+    chore(version): bump to 0.4.6
+
+[33mcommit 798f838f3c3d24b202c26f3fc981a3a85996e7fd[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 8 17:51:17 2016 +0000
+
+    fix(checkout_tag): only show commit message in solution
+    
+    The solution now uses a format flag to only show the commit message.
+    This fixes an issue if the users name contains UTF-8 characters.
+
+[33mcommit db1654258f6a9886188a9f44f37906c0f34af2b4[m
+Merge: e227336 fea1b1b
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Jan 7 14:13:06 2016 +0000
+
+    Merge pull request #200 from odegroot/fix-typo
+    
+    Fix typo: it's GitHub, not Github.
+
+[33mcommit fea1b1b918fe85f91bc9419430cafef262304e93[m
+Author: Oscar de Groot <oscar.degroot@ogd.nl>
+Date:   Thu Jan 7 15:04:28 2016 +0100
+
+    Fix typo: it's GitHub, not Github.
+
+[33mcommit e2273367e8663d4aae01478de5a0994882ed3e07[m
+Merge: 4958058 49ffc88
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Jan 3 18:05:09 2016 +0000
+
+    Merge pull request #197 from hooopo/add_homepage
+    
+    add homepage
+
+[33mcommit 49ffc886143dd2b9a19c59293ddca374166d4b03[m
+Author: Hooopo <hoooopo@gmail.com>
+Date:   Sun Jan 3 22:14:04 2016 +0800
+
+    add homepage
+
+[33mcommit 495805853865c378b1880f276f0ce460743101c6[m[33m ([m[1;33mtag: v0.4.5[m[33m)[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 1 15:57:31 2016 +0000
+
+    chore(version): bump to 0.4.5
+
+[33mcommit 84d101e5f92a5b326233546f703ffa0a437d807b[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 1 15:56:06 2016 +0000
+
+    fix(levels/remote_url): allow a trailing slash on repo url
+    
+    both `https://github.com/githug/not_a_repo` and
+    `https://github.com/githug/not_a_repo/` are now valid.
+    
+    This closes #187
+
+[33mcommit dfc9b766167352519d7600faf5ceec026d8f879a[m
+Merge: 1f8e3a5 b21ce09
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 1 15:48:57 2016 +0000
+
+    Merge pull request #194 from Gazler/fix/revert-level
+    
+    fix for the revert level 51
+
+[33mcommit 1f8e3a59f53b6f3558d998a111dc791fc1972466[m
+Merge: 11ff6ba 923114c
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Jan 1 13:05:14 2016 +0000
+
+    Merge pull request #195 from legendtkl/master
+    
+    fix squash with some tips.
+
+[33mcommit 923114c6883c84a71f04f796318351cf6fe27a48[m
+Author: legendtkl <taokelu@gmail.com>
+Date:   Fri Jan 1 20:48:19 2016 +0800
+
+    give the detailed information about squash (squash which commits to which)
+
+[33mcommit b21ce095f8297474b5a2866ef2613c07f8400059[m
+Author: Anthony Gargiulo <anthony@agargiulo.com>
+Date:   Sun Oct 4 19:59:07 2015 -0400
+
+    fix for the revert level 51
+
+[33mcommit 11ff6baf54d8a5f1c6be684bdefc8cdfcc868c69[m
+Merge: cdc24b9 48bc5d3
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Dec 20 18:44:51 2015 +0000
+
+    Merge pull request #191 from kytrinyx/instructions
+    
+    flesh out game instructions in README
+
+[33mcommit 48bc5d357e7f39693fe2a3c50244ef03bc2457cd[m
+Author: Katrina Owen <katrina.owen@gmail.com>
+Date:   Sat Dec 19 11:57:32 2015 -0700
+
+    flesh out game instructions in README
+    
+    The instructions for how to use Githug assumed a lot of knowledge that
+    many beginners do not have (Ruby, filesystem idioms, permissions).
+    
+    This makes the Ruby prerequisite explicit (not everyone who
+    wants to learn git is learning Ruby).
+    
+    Since people who are learning git without ruby might already have Ruby
+    installed at the system-level, this adds a note about running `gem
+    install` with `sudo`.
+    
+    It also separates out "how to play" from the installation instructions,
+    and removed the `test` command from the list of commands, since that
+    is contributor-related and not relevant for people who are just using
+    the tool to learn how to use git. The `test` command is documented
+    below in the contribution section.
+
+[33mcommit cdc24b9e14e0992064c3f5c19ad3caf468c475d0[m[33m ([m[1;33mtag: v0.4.4[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Feb 13 10:52:46 2015 +0000
+
+    fix(reorder): ensure file3 is closed in merge_squash level
+    
+    Previously the merge_squash level was using "file3" to validate the
+    results. On Windows, a file needs to be explicitly closed or it cannot
+    be accessed by another process. When reseting for the reorder level,
+    this was causing a permissions issue.
+
+[33mcommit 97fc24829d6ce9bb20347e85314bcca5617ca9cc[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Feb 10 18:31:59 2015 +0000
+
+    fix(push_branch): ensure push_branch level works on Windows
+    
+    Previously the push_branch level was using the `wc` tool to check the
+    number of branches in the repository. Since `wc` is not available on
+    Windows, a pure ruby alternative is used.
+
+[33mcommit 3d844f5a7a194851ed7db817635989f4e59c5d75[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Feb 10 18:30:16 2015 +0000
+
+    fix(fetch): ensure fetch level works on Windows
+    
+    Previously the fetch level was using the `wc` tool to check the number
+    of commits in ".git/FETCH_HEAD". Since `wc` is not available on Windows,
+    a pure ruby alternative is used.
+
+[33mcommit ab0a9692e900bbe742e9bf248e4a0836dd376261[m
+Merge: 85ea0a2 7e1dcd7
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Wed Jan 14 22:59:31 2015 +0000
+
+    Merge pull request #183 from jackmaney/master
+    
+    Added a basic submodule level
+
+[33mcommit 7e1dcd72c05cbc49ec5ba2552a129008512c35d3[m
+Author: Jack Maney <jlmaney@dstsystems.com>
+Date:   Wed Jan 14 11:57:50 2015 -0600
+
+    Added a basic submodule level
+
+[33mcommit 85ea0a288e184b8a63ec70383620612d424769fa[m
+Merge: dc57905 39eda89
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sat Jan 10 18:12:19 2015 +0000
+
+    Merge pull request #180 from snahor/patch-1
+    
+    Fix typo that prevented ".hidden" to be commited
+
+[33mcommit 39eda89d75ba7b1e76e415b16923812725f97c9f[m
+Author: Hans Roman <hans.r.69@gmail.com>
+Date:   Thu Jan 8 19:46:03 2015 -0500
+
+    Fix typo that prevented ".hidden" to be commited
+
+[33mcommit dc579057e6ffeab3a6b8e8e4850a3fa7138d50e1[m
+Merge: 2011b9d 5b94307
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Dec 21 12:35:15 2014 +0000
+
+    Merge pull request #178 from liliakai/patch-1
+    
+    Reword description for rebase level
+
+[33mcommit 5b9430783a5d14bca5f4e90e63edc1f343b20be6[m
+Author: Lilia <liliakai@gmail.com>
+Date:   Sat Dec 20 17:22:27 2014 -0800
+
+    Reword description for rebase level
+    
+    On first pass, I interpretted this phrasing to mean that some change must be made to the master branch, when in fact it is the feature branch that needs to change its base from 'init commit' to 'add content'.
+    
+    This new suggested wording attempts to make it a bit clearer that the user must operate on the feature branch, and is semantically consistent with `--onto` option described in the man page for git rebase.
+
+[33mcommit 2011b9d68bb5c24ea4b2dfbd4c6c24c96717a1a4[m[33m ([m[1;33mtag: v0.4.3[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Dec 15 09:30:05 2014 +0000
+
+    Version Bump 0.4.3
+    
+    [ci skip]
+
+[33mcommit d055582a8a4f810713b055bf2e671305b2f4bb9b[m
+Merge: e454419 4f53418
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Mon Dec 15 09:30:36 2014 +0000
+
+    Merge pull request #176 from ipmsteven/addRebaseLevel
+    
+    Add rebase level
+
+[33mcommit 4f534189f45f0dcab1315f27b9cd0ecb9b1600aa[m
+Author: ipmsteven <steven.lyl147@gmail.com>
+Date:   Fri Dec 12 23:50:18 2014 -0800
+
+    add rebase level
+
+[33mcommit e4544197b5ae146f1d59c6ec6388ff29560f9a7e[m
+Merge: afc4c78 028924d
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Dec 14 14:41:05 2014 +0000
+
+    Merge pull request #177 from ipmsteven/addRubyHead
+    
+    add ruby-head for travis
+
+[33mcommit 028924dbc1a2040e7b1389de3f6aa22895b73e20[m
+Author: ipmsteven <steven.lyl147@gmail.com>
+Date:   Sat Dec 13 23:35:28 2014 -0800
+
+    add ruby-head for travis
+
+[33mcommit afc4c781cae9383439779541a0c2e6f2511d0bfc[m
+Merge: 8132fbb d3e8207
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Tue Sep 30 09:16:14 2014 +0100
+
+    Merge pull request #170 from mocoso/add-long-description-to-reset
+    
+    Add long description to reset
+
+[33mcommit 8132fbbf8729b638c74dca0606912365362ead69[m
+Merge: 841a785 ecd6274
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Tue Sep 30 09:15:03 2014 +0100
+
+    Merge pull request #171 from mocoso/add-ruby-2-1
+    
+    Add ruby 2.1 to travis config
+
+[33mcommit ecd6274d91d477255f82ebbe9576ace9fdac4a6c[m
+Author: Joel Chippindale <joel@joelchippindale.com>
+Date:   Tue Sep 30 06:17:23 2014 +0100
+
+    Add ruby 2.1 to travis config
+    
+    So that githug is tested against this version of ruby too
+
+[33mcommit d3e8207e34ba938906922bf925e10fc73fe95b64[m
+Author: Joel Chippindale <joel@joelchippindale.com>
+Date:   Tue Sep 30 06:06:31 2014 +0100
+
+    Add long description to reset
+    
+    To make it clear that you can optionally specify a level name
+    when calling `githug reset`
+
+[33mcommit 841a785d4ed9f75549c3031659360a6d24f11f94[m
+Merge: 3b0cccd 2b2d1f5
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Tue Sep 16 23:03:14 2014 +0100
+
+    Merge pull request #168 from allcentury/ar-restructure
+    
+    Restructure clarification
+
+[33mcommit 2b2d1f5907d72ebedf96cd5ffa69e1c5217bbce7[m
+Author: Anthony Ross <anthony.s.ross@gmail.com>
+Date:   Tue Sep 16 17:46:15 2014 -0400
+
+    Restructure clarification
+    
+    I want to resolve issue #167 by setting user expectations appropriately
+
+[33mcommit 3b0cccdefb3fd2c81800b5d5e26171d334b1be1f[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Jun 26 16:44:29 2014 +0100
+
+    fix(git1.7): ensure errors aren't raised in level initialization
+    
+    On the `push`, `push_branch` and `fetch` levels the following error was
+    displayed in the terminal on initialization:
+    
+        error: unknown switch `u'
+        usage: git branch [options] [-r | -a] [--merged | --no-merged]
+           or: git branch [options] [-l] [-f] <branchname> [<start-point>]
+           or: git branch [options] [-r] (-d | -D) <branchname>
+           or: git branch [options] (-m | -M) [<oldbranch>] <newbranch>
+    
+    This warning is a result of the -u flag not being available in previous
+    versions of git. The level solution is not affected by this so the
+    warning is piped to /dev/null
+    
+    This closes #161
+
+[33mcommit 5229e90ceff923a233761fb65c239eb8640b03b1[m
+Merge: f543ca5 2f2f228
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Mon Mar 17 19:19:36 2014 +0000
+
+    Merge pull request #159 from suchow/master
+    
+    Copyedit README
+
+[33mcommit 2f2f228e481c989240c57928a7b3988fe230ef6c[m
+Author: Jordan Suchow <suchow@post.harvard.edu>
+Date:   Mon Mar 17 14:28:53 2014 -0400
+
+    Copyedit README
+
+[33mcommit f543ca57f9acb6ef92395f9c1ec38e6187fbe22d[m
+Merge: 7097847 2c7b06d
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Feb 27 11:57:40 2014 +0000
+
+    Merge pull request #156 from openjck/correct-reorder-order
+    
+    Correct order of commits in "reorder" solution
+
+[33mcommit 2c7b06d94778dbd3ef6eb3856ff78e50d782f1fc[m
+Author: John Karahalis <john.karahalis@gmail.com>
+Date:   Fri Jan 24 18:41:48 2014 -0500
+
+    Correct order of commits in "reorder" solution
+    
+    The solution incorrectly expects "Third commit" to be the root commit,
+    "Second commit" to be the second commit, and so on.
+    
+    These changes correct the order. The solution now expects that "Initial
+    Setup" is the root commit, that "First commit" is the second commit, and
+    so on.
+    
+    Many thanks to Gary for finding a bug in my original implementation and
+    suggesting a better one. He deserves the credit here. :-)
+
+[33mcommit 7097847ed738dd796b956de2c79a85173f0c3267[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Dec 31 18:39:25 2013 +0000
+
+    Refactor: Remove class variables from UI class
+    
+    The class variables have been replaced with `attr_accessor` calls inside
+    of `class << self`
+    
+    The defaults are still STDIN and STDOUT but the methods for
+    `out_stream=` and `in_stream=` are now created by the `attr_accessor`
+    calls.
+
+[33mcommit e36d3672ec0505bb403d7d9f8521ef40d8552b2f[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Dec 31 18:30:34 2013 +0000
+
+    Refactor: Change make_directory into a bang method
+    
+    Because `make_directory` can have a side effect, it has been renamed to
+    `make_directory!` it has also been refactored to call a series of more
+    descriptive methods for:
+    
+     * Checking if a directory exists
+     * Prompting the creation of a directory
+     * Creating the directory
+
+[33mcommit f29478d8a9112142b3be04b2d08d553dca59b551[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Dec 31 18:20:21 2013 +0000
+
+    Refactor: Simplify methods on cli and profile
+    
+    The methods in `cli` and `profile` were doing too much. Some of the
+    methods have been refactored to be composed of smaller more specific
+    methods. There is still more refactoring to be done, for example the
+    `UI.ask` method could take a block and yield on success. This would
+    simplify the `make_directory` method of `cli`
+
+[33mcommit b9cf83dcb13842701a65979e172e87e2ac515619[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Dec 31 13:03:23 2013 +0000
+
+    Refactor: Remove instance variables from specs
+    
+    The instance variables that were present in many of the spec files have
+    been removed except for two instances:
+    
+     * The @dir variable used in `githug_spec` to keep track of the users
+       directory.
+     * The @levels variable used in `profile_spec` to keep track of the
+       value of the levels constant before changing it so it can be used in
+       the specs.
+    
+    The spec descriptions have also been updated to be in the "performs this
+    action" format instead of "should perform this action"
+    
+    Where appropriate method names inside of describe blocks have been
+    prefixed with a "#" if they are instance methods and a "." if they are
+    class methods.
+
+[33mcommit d35e029a026b16e2677e656e0d1054c469688889[m[33m ([m[1;33mtag: v0.4.2[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Dec 30 13:46:27 2013 +0000
+
+    Version Bump 0.4.2
+    
+    [ci skip]
+
+[33mcommit 0cedbd93dd0d33186349abc1c8529dfa257396fc[m
+Merge: 4243676 ae6ad09
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Dec 30 13:44:09 2013 +0000
+
+    Merge remote-tracking branch 'victor9000/master'
+    
+    Conflicts:
+            lib/githug/level.rb
+
+[33mcommit ae6ad09b50e8b2e152266ab859d997a18ccdbbad[m
+Author: Victor Medina <medina5000@gmail.com>
+Date:   Sat Dec 28 13:16:41 2013 -0800
+
+    Add a new level to restructure an existing project
+
+[33mcommit 4243676efc4450d988ba32eec9f98460581eec98[m
+Author: Tony Zanella <tony.zanella@gmail.com>
+Date:   Sat Dec 28 12:39:04 2013 -0700
+
+    Adding a level for gitignore to include files
+
+[33mcommit cc69b8a1d11e0a73de6ce1202206438e2f13bdb5[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Dec 28 11:58:53 2013 +0000
+
+    Fix: Ensure travis uses rubygems 2.1.11 for 1.8.7
+    
+    When using ruby 1.8.7 and rubygems 2.2.0 - running `bundle install`
+    fails with the following error:
+    
+    $ bundle install
+    Fetching gem metadata from http://rubygems.org/.........
+    Fetching additional metadata from http://rubygems.org/..
+    Unfortunately, a fatal error has occurred. Please see the Bundler
+    troubleshooting documentation at http://bit.ly/bundler-issues. Thanks!
+    /1.8/rubygems/specification.rb:325:in `sort':
+      undefined method `<=>' for nil:NilClass (NoMethodError)
+    /1.8/rubygems/specification.rb:325:in `files'
+    /1.8/rubygems/specification.rb:2155:in `send'
+    /1.8/rubygems/specification.rb:2155:in `same_attributes?'
+    /1.8/rubygems/core_ext/kernel_require.rb:55:in `all?'
+
+[33mcommit d905231a885e6eb44daaf8fbd10a66f4506b47d0[m
+Merge: 0b0e11d e244f60
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Dec 28 11:56:28 2013 +0000
+
+    Merge remote-tracking branch 'markjessop/master'
+
+[33mcommit 0b0e11d772d36e7e4f9229b50224026c892331b5[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Dec 28 11:53:46 2013 +0000
+
+    Add Level: Number of Files Committed
+    
+    Squashed commit of the following:
+    
+    commit 918956cfe7cee3f29d4f70f4ba006f4737d7fd0d
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Sun Dec 15 22:39:30 2013 +0100
+    
+        Fix test
+    
+    commit 46e31b3edac632fb88a1137e76ce17fe445e5961
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Thu Dec 12 23:23:37 2013 +0100
+    
+        [Contribution] New level
+    
+    commit 873d5ae76cc0cf17e14443bf5536ead21fc7c3a2
+    Merge: 75793c3 9ad34ed
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Thu Dec 12 23:22:46 2013 +0100
+    
+        Merge branch 'master' of https://github.com/martinmose/githug
+    
+        * 'master' of https://github.com/martinmose/githug:
+          [Contribution] New level
+          Add level
+    
+    commit 75793c3861d5925781c1fc38da46a688a1946f95
+    Merge: fb605eb 5154cc4
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Thu Dec 12 23:16:30 2013 +0100
+    
+        Merge branch 'master' of https://github.com/Gazler/githug
+    
+        * 'master' of https://github.com/Gazler/githug:
+          Docs: Use 'reset' instead of 'load' in testing section
+          Fix: Ensure push_tags works with git 1.7.1 on CentOS
+    
+    commit fb605eb3f052b173e342b62115a9d10c40d605fc
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Thu Dec 12 23:15:27 2013 +0100
+    
+        [Contribution] New level
+    
+    commit 9ad34ed49996608e39ded07724df76c051baf720
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Tue Dec 10 23:20:03 2013 +0100
+    
+        [Contribution] New level
+    
+        Changes
+    
+        commit
+    
+        Commit
+    
+        Working
+    
+        Working 2
+    
+    commit 690a0ecab2c72505cf5988987c28e1b88d0970a7
+    Author: Martin Mose Hansen <martinmosehansen@me.com>
+    Date:   Tue Dec 10 22:25:34 2013 +0100
+    
+        Add level
+
+[33mcommit e244f604cbc61e8dcc4b7468417afeb65c59884b[m
+Author: m@m <m@m>
+Date:   Mon Dec 16 15:32:32 2013 -0500
+
+    [New Level] Added a push by branch level to the game.
+    
+    This level helps the user push up one branch over another to the remote repository.  The level is successful when only a specific branch is pushed up.  The level will fail if more then one branch is pushed or if the master branch itself is pushed.
+
+[33mcommit b5da7fc951a13b6acf58c3f4c85967dd07475f46[m
+Author: m@m <m@m>
+Date:   Fri Dec 13 10:40:44 2013 -0500
+
+    A githug_spec test wasn't included in the previous commit.  A fetch level test has been added.
+
+[33mcommit 2bef343e6882602cb608d8745b31fdf3c9a32312[m
+Author: m@m <m@m>
+Date:   Fri Dec 13 10:03:56 2013 -0500
+
+    New Level
+    
+    A new level using the git fetch method to return a successful result.
+
+[33mcommit 5154cc4e290621db9352d117a8940c9e6fcb7fa4[m
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Dec 12 22:06:44 2013 +0000
+
+    Docs: Use 'reset' instead of 'load' in testing section
+    
+    Load was left over from a previous commit.
+    
+    See https://github.com/Gazler/githug/pull/123
+
+[33mcommit a22e1758a621ff34b30f03533665529c19170700[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Dec 10 21:47:34 2013 +0000
+
+    Fix: Ensure push_tags works with git 1.7.1 on CentOS
+    
+    This fixes #144
+
+[33mcommit ef585ae148a153397c7359f19f3870d7205fb99d[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Dec 9 20:09:48 2013 +0000
+
+    Merge smilansky/master with --squashed option
+    
+    Squashed commit of the following:
+    
+    commit d1bca787f50f8013a36002fe7b49634c14255d46
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Wed Dec 4 22:40:54 2013 -0800
+    
+        delete branch
+    
+    commit 65d628db8908c460da2f3393ab10953467d6d4e9
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Wed Dec 4 16:06:27 2013 -0800
+    
+        change to .githug
+    
+    commit a30338c57c903cd9236d8e6805d2d8c55313c7e5
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Wed Dec 4 08:44:56 2013 -0800
+    
+        spec added
+    
+    commit 6242fa0c97bb73bd406449139c4ccff6129cb94f
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Wed Dec 4 08:42:06 2013 -0800
+    
+        spec helper
+    
+    commit 48f406b9385523e0b060182baa9f84a751287612
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Wed Dec 4 00:05:19 2013 -0800
+    
+        delete branch level final
+    
+    commit a463db7d2bdf53fa0cbc5f6018fcca57e9aa0714
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 23:25:19 2013 -0800
+    
+        delete branch folder
+    
+    commit 7ca47ee1ba24ef0c7afad2ba1975fe4867d53ccb
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 22:35:27 2013 -0800
+    
+        delete branch level
+    
+    commit cc848e8d801b82bca2c784fd09133e1440ee62a0
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:22:59 2013 -0800
+    
+        Initial commit
+    
+    commit 420106b7caf7c0bec90e9fd69e93def49d8ab36d
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:22:47 2013 -0800
+    
+        Initial commit
+    
+    commit 3a9b9caaa423da64420df7c94947275718063f07
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:22:27 2013 -0800
+    
+        Initial commit
+    
+    commit 23accada246f4157ad2ce3929eb964079e91391d
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:21:34 2013 -0800
+    
+        Initial commit
+    
+    commit fc47fb38676168de3f5bf1ec7402cb037d11f598
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:19:44 2013 -0800
+    
+        Initial commit
+    
+    commit dc3b4e3b60182e729cc4f7078c8f5437f2e45c4a
+    Author: Daniel Smilansky <dsmilansky@gmail.com>
+    Date:   Tue Dec 3 21:19:15 2013 -0800
+    
+        delete_branch level
+
+[33mcommit 8c6dfda43f03fff01092d6994f992707e0c106d6[m
+Merge: df7e7fb 35dd36a
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Wed Nov 27 04:39:44 2013 -0800
+
+    Merge pull request #143 from adubinova/master
+    
+    minor change
+
+[33mcommit 35dd36aeb5de33d852d3958c89a50cbb336f5666[m
+Author: Susek <Susek@gmail.com>
+Date:   Wed Nov 27 12:44:41 2013 +0100
+
+    A line from the TODO list has been removed.
+
+[33mcommit 2380dd7b35e935d718f589ad7dad61586db005ad[m
+Author: Susek <Susek@gmail.com>
+Date:   Wed Nov 27 12:16:15 2013 +0100
+
+    minor change
+
+[33mcommit df7e7fb42fe66b4ab059b25d3bc2bbd81479375e[m
+Merge: b070036 1799c6d
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sun Nov 24 06:38:32 2013 -0800
+
+    Merge pull request #142 from despo/add-codeclimate-badge
+    
+    add code climate badge
+
+[33mcommit 1799c6d19ffaf9208da699a7bf38a3cbb9acb38f[m
+Author: Despo Pentara <despo@extractmethod.com>
+Date:   Sat Nov 23 14:11:23 2013 +0000
+
+    add code climate badge
+
+[33mcommit b070036c025f64e022f26e87b3d7c3a85c4a3402[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Nov 16 14:31:38 2013 +0000
+
+    Fix: Ensure commit_in_future test works on 1.8.7
+
+[33mcommit 12e6d5dfee32510a362f1e3d8d6cf58b0d793a59[m
+Merge: 3cc8b41 92fb3ed
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Nov 16 14:24:50 2013 +0000
+
+    Merge remote-tracking branch 'afronski/master'
+    
+    Conflicts:
+            lib/githug/level.rb
+
+[33mcommit 92fb3edc1e5258c861dc054eea6d830352b54630[m
+Author: Wojciech Gawronski <afronski@gmail.com>
+Date:   Thu Nov 14 21:30:14 2013 +0100
+
+    [Contribution] New level, integration test for completing githug challenge.
+
+[33mcommit 3cc8b4151c321aade8d7f4c471d14dab2872c46e[m[33m ([m[1;33mtag: v0.4.1[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Nov 13 23:28:43 2013 +0000
+
+    Version bump to 0.4.1
+    
+    [ci skip]
+
+[33mcommit c4ee93a6dfbb767ef351b64483139f545b3ed00d[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Nov 13 23:11:35 2013 +0000
+
+    Fix: Ensure resetting a level sets it in the profile
+    
+    If `reset` was called with a level name - the level would reset to that
+    level, however it would not maintain the state, so any future `githug`
+    commands would reference the level that the user was on before `reset`
+    was called.
+
+[33mcommit 5e942caa85ba0aa56d127a16012de5b6e80e171b[m
+Merge: 501e8c6 d12e59d
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Wed Nov 13 00:56:53 2013 -0800
+
+    Merge pull request #140 from ehershey/patch-2
+    
+    Grammar correction
+
+[33mcommit d12e59de47aa22b3b82fbd96e3c6e3e20fcbd495[m
+Author: Ernie Hershey <github@ernie.org>
+Date:   Tue Nov 12 22:31:37 2013 -0500
+
+    Grammar correction
+    
+    Changed "This projects has" to "This project has"
+
+[33mcommit 501e8c6d62ca80973bb262e59ce322a28b76c96a[m[33m ([m[1;33mtag: v0.4.0[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 22:12:04 2013 +0000
+
+    Version bump to 0.4.0
+    
+    [ci skip]
+
+[33mcommit 5878aed7705650b87bd92738ecf45d7b1dbf0938[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 22:08:01 2013 +0000
+
+    Fix: Change with_index to maintain 1.8.7 compatibility
+
+[33mcommit 396117fa87873b3178bbdf33c6b7f94ba7363984[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 22:05:07 2013 +0000
+
+    Fix: Use File.read instead of cat on conflict level
+    
+    Due to compatibility issues with Windows the call to the unix command
+    `cat` has been replaced with a ruby `File.read`
+    
+    This fixes #133
+
+[33mcommit e6fb9055e01c999ac52344d8bbf01471f1ebe7e9[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 21:59:37 2013 +0000
+
+    Feature: Allow reset to take a level name
+    
+    Reset can now take a level name as well as a path or no arguments.
+    A new `levels` command has been added to list all of the levels.
+
+[33mcommit 472f0e88ac9187f96a738ccde4a95604c60f040e[m
+Merge: 74ed6f5 17a02f1
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 20:59:23 2013 +0000
+
+    Merge remote-tracking branch 'mattvleming/master'
+
+[33mcommit 74ed6f5a5de72b8dde674a66d84bbd01105d34bd[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 13:16:25 2013 +0000
+
+    Fix: Reorder levels - move grep after cherry-pick
+
+[33mcommit f1cd07080abf7f75bbee62f1e30dd3dca8359503[m
+Merge: 564c3af cb715cf
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 12 13:10:42 2013 +0000
+
+    Merge remote-tracking branch 'ThibWeb/master'
+
+[33mcommit 564c3af102c6c45037fa3ac80b47a46ef813b88a[m
+Author: Paul Peregud <paulperegud@gmail.com>
+Date:   Tue Nov 12 10:34:29 2013 +0100
+
+    While we usually merge branches into master, more precise wording should
+    be used. After all, this is a learning tool.
+
+[33mcommit cb715cfd32330e19e429cc65c00ec263d4182106[m
+Author: Thibaud Colas <thibaudcolas@gmail.com>
+Date:   Tue Nov 12 05:32:36 2013 +0100
+
+    Add the grep level, inspired from blame & diff.
+
+[33mcommit 546f303e0e7b67496711a206e3b1a1016d6e3580[m
+Author: Thibaud Colas <thibaudcolas@gmail.com>
+Date:   Tue Nov 12 05:09:18 2013 +0100
+
+    Add file / git structure for grep example
+
+[33mcommit 66b8fa69b57f2d13d5c7f6cf2e6092e57ca57790[m
+Merge: 8bea941 c25d9d3
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Sat Nov 9 02:43:18 2013 -0800
+
+    Merge pull request #135 from ehershey/patch-1
+    
+    Update "to_commit_second" filename in text to match filename with extension
+
+[33mcommit c25d9d36e854e96a23eae8afa579fc1d2cefb323[m
+Author: Ernie Hershey <github@ernie.org>
+Date:   Fri Nov 8 22:51:51 2013 -0500
+
+    Update text to match filename
+    
+    The real file was "to_commit_second.rb" but the text refers to it as "to_commit_second" with no extension.
+
+[33mcommit 8bea941be0a12383e1315f0ebc6743a82972854f[m
+Merge: 07db45d 107753f
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Nov 8 02:28:17 2013 -0800
+
+    Merge pull request #134 from atlasthugged/reorder_config_level
+    
+    Reorder config level
+
+[33mcommit 107753f16e961e5c25e43840a356eda56acb8070[m
+Author: Josh Leichtung <elultimo@gmail.com>
+Date:   Fri Nov 8 08:21:32 2013 +0000
+
+    Change order of levels, making config level second
+
+[33mcommit 2b06c3b96a01b036a4d2eba07ea9bd8d4a89fece[m
+Author: Josh Leichtung <elultimo@gmail.com>
+Date:   Fri Nov 8 08:30:35 2013 +0000
+
+    Change RSpec settings to run tests in order
+
+[33mcommit 786da9b1d6cf13a8a80818c84362a79b36692bf2[m
+Author: Josh Leichtung <elultimo@gmail.com>
+Date:   Fri Nov 8 08:19:02 2013 +0000
+
+    Change test order so that config level is second
+
+[33mcommit 07db45dbb95564c87914bfc863801b19db09e79e[m[33m ([m[1;33mtag: v0.3.5[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Oct 31 18:07:14 2013 +0000
+
+    Version bump 0.3.5
+    
+    [ci skip]
+
+[33mcommit 977fc152b9310d7e59e5d14d961cd6985852448d[m
+Merge: c2f811c 3e9c7b6
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Oct 31 18:02:53 2013 +0000
+
+    Merge remote-tracking branch 'fellowmd/test_fix_by_setting_upstream_correctly'
+
+[33mcommit c2f811ce9a73c8b3ce2b38d8adb61efe43c75a1c[m
+Author: Aaron Sikes <jingadjanga@gmail.com>
+Date:   Wed Oct 30 12:03:08 2013 -0400
+
+    Make the revert level require using revert
+
+[33mcommit 3e9c7b6f1a509469e640ed5ea8b04b2ae20df6be[m
+Author: Aaron Sikes <jingadjanga@gmail.com>
+Date:   Tue Oct 29 23:49:48 2013 -0400
+
+    fix integration tests failing when `git config --global push.default` == simple
+
+[33mcommit d03f9f82e7dd3511d428056a722c41eb6e1fa868[m[33m ([m[1;33mtag: v0.3.4[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 29 12:40:33 2013 +0000
+
+    Version bump to 0.3.4
+    
+    This fixes #125
+    
+    [ci skip]
+
+[33mcommit d1f1787c453aec48d1616d02cdb7da0e673ccc18[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 29 12:37:12 2013 +0000
+
+    Feature: Allow UTF-8 on config level
+    
+    On the config level under ruby 1.9 and higher valid solutions containing
+    UTF-8 strings were failing due to the encoding type of the response from
+    `git config`
+    
+    If available (ruby 1.9 and higher) then the encoding type is forced
+    allowing for UTF-8 solutions.
+
+[33mcommit 0b8a45a38ecfb5c18a806a96da460f2b35c7c928[m
+Merge: a7e31ed d8a6aaf
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Oct 28 17:52:55 2013 +0000
+
+    Merge remote-tracking branch 'snoozbuster/master'
+    
+    Conflicts:
+            levels/conflict.rb
+
+[33mcommit a7e31ed4f4d38418398a47b7871886e1b72740ec[m
+Merge: 6830b30 f2645b8
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Oct 28 17:47:10 2013 +0000
+
+    Merge remote-tracking branch 'tanner/quotation'
+    
+    Conflicts:
+            levels/add.rb
+            levels/blame.rb
+            levels/branch.rb
+            levels/branch_at.rb
+            levels/checkout.rb
+            levels/checkout_tag.rb
+            levels/checkout_tag_over_branch.rb
+            levels/cherry-pick.rb
+            levels/clone_to_folder.rb
+            levels/ignore.rb
+            levels/init.rb
+            levels/merge.rb
+            levels/push.rb
+            levels/remote_add.rb
+            levels/squash.rb
+
+[33mcommit 6830b30755d04878492fd6e4b078d0f70d3ca421[m
+Merge: 1033314 010a537
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Mon Oct 28 10:42:09 2013 -0700
+
+    Merge pull request #119 from Tanner/punctuation
+    
+    Make end of sentence punctuation consistent for githug and levels
+
+[33mcommit f2645b8b65502d782cf7d2b16a2fd18685e2cb87[m
+Author: Tanner Smith <tanner@tssoftware.net>
+Date:   Sun Oct 27 18:10:51 2013 -0400
+
+    Use backticks around files, tags, commands.
+
+[33mcommit 010a537dc3fc37d0e398702e59f5138c7efe1175[m
+Author: Tanner Smith <tanner@tssoftware.net>
+Date:   Sun Oct 27 17:43:23 2013 -0400
+
+    Update be_solved to reflect changes in punctuation.
+
+[33mcommit 631375422198bcd8d34cc6df85e3dd26516560ba[m
+Author: Tanner Smith <tanner@tssoftware.net>
+Date:   Sun Oct 27 17:43:07 2013 -0400
+
+    Update game spec to reflect punctuation changes.
+
+[33mcommit d8a6aaf775519a1dcb9e35ce1321895548d4558e[m
+Author: Alex Van Liew <snoozbuster@yahoo.com>
+Date:   Sun Oct 27 03:40:26 2013 -0700
+
+    Updated the conflict level to make more sense for the user.
+
+[33mcommit 742f01349b957dd9b3aa793c4b015ea3b7da77e1[m
+Author: Alex Van Liew <snooz@localhost>
+Date:   Fri Oct 25 16:47:38 2013 -0700
+
+    This level appeared to function incorrectly; the hint seemed to imply that the merged file should
+    contain the 'correct' version of the poem and nothing else, but it required the phrase 'cool poem' be
+    in the file. Updated to refuse anything but the 'correct' poem.
+
+[33mcommit 103331425550cf3c7c691190aa2563cfce445cde[m[33m ([m[1;33mtag: v0.3.3[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Oct 27 10:33:35 2013 +0000
+
+    Version bump 0.3.3
+
+[33mcommit e60dcb86371b28032d28ad3f763c4ec3b4a8d843[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 19:43:31 2013 +0100
+
+    Feature: Allow for `return` in solutions
+    
+    This is a revert of a revert.  The original message is below:
+    
+    Revert "Revert "Allow for `return' in solutions""
+    
+    This reverts commit ff628f81605bf73c777abee8f5c839455ec4bf08.
+
+[33mcommit 17a02f1abfe6e9eb4b731ec0235248628b6d5b69[m
+Author: Matt Vleming <mattvleming@gmail.com>
+Date:   Fri Oct 25 23:42:00 2013 -0400
+
+    Updating README.md
+    
+    Updating Testing Levels in README.md
+
+[33mcommit ff628f81605bf73c777abee8f5c839455ec4bf08[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 13:05:54 2013 +0100
+
+    Revert "Allow for `return' in solutions"
+    
+    This reverts commit 4b3bf993927e8d209dd6c809538b7470deb12aeb.
+
+[33mcommit 71cc66e9a37722f8cc7d2bacb2aaa4ee4f026096[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 13:04:49 2013 +0100
+
+    Revert "Fix: Update levels to use return true syntax"
+    
+    This reverts commit f71090a015d540e313e1615d5ec1ed2a0acdf7fe.
+
+[33mcommit 3ef85c9395873ef4a8b76728f564c157ac484eff[m
+Merge: f71090a 7c4d1e1
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 12:40:48 2013 +0100
+
+    Merge remote-tracking branch 'detegr/master'
+
+[33mcommit f71090a015d540e313e1615d5ec1ed2a0acdf7fe[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 12:38:59 2013 +0100
+
+    Fix: Update levels to use return true syntax
+    
+    A recent comment has made it possible to prematurely return out of a
+    proc.  For some levels, this makes the code more readable as it does not
+    require storing the state of the solution in a variable and returning it
+    at the end.
+
+[33mcommit cd4210426e99b6424d2e0b6a2c70bb97b0eeaab2[m
+Merge: 58f341f 4b3bf99
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 12:33:16 2013 +0100
+
+    Merge remote-tracking branch 'stephencelis/method-solutions'
+
+[33mcommit 58f341fa91c82968ce652480b7a48f9177f1d928[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 12:22:11 2013 +0100
+
+    Fix: Allow any hash > 7 chars in bisect level
+    
+    In the bisect level, the hash solution is trimmed to 7 chars and they
+    are checked.  This prevents the users requiring to count the length of
+    their input to fix the level.
+    
+    This fixes #114
+
+[33mcommit c4954831dda9d21042b8c41e6d1c2a9a275aa17f[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 26 12:18:37 2013 +0100
+
+    Fix: Change contribute level to use HTTPS
+    
+    Previously, the git clone for the contribute level was using SSH.  This
+    was causing issues for users who have not set up their SSH keys. With
+    HTTPS, no key is required to clone a public repository.
+    
+    This fixes #107
+
+[33mcommit 86d87ec7f0e98a48381cf4cbe5600e395103f5e5[m
+Author: Matt Vleming <mattvleming@gmail.com>
+Date:   Sat Oct 26 00:03:33 2013 -0400
+
+    Adding command to load level from file
+
+[33mcommit 4bcea1a945b3fbabaaa84d645d8138d9603c0d88[m
+Author: Matt Vleming <mattvleming@gmail.com>
+Date:   Fri Oct 25 23:43:13 2013 -0400
+
+    Display level name in description
+
+[33mcommit 8316a587673c3c1d7465fa86c9e8d305a9aa121a[m
+Author: Matt Vleming <mattvleming@gmail.com>
+Date:   Sat Oct 26 00:02:51 2013 -0400
+
+    Adding command to list levels
+
+[33mcommit 2afa7c2bf5c0a6696ff417d7d9bf76c2830f0119[m
+Author: Matt Vleming <mattvleming@gmail.com>
+Date:   Fri Oct 25 22:50:38 2013 -0400
+
+    Making reset work w/ name instead of file path
+
+[33mcommit 0c149e7b5550979e1b1cfaa2914a2e27e71a0197[m
+Author: Tanner Smith <tanner@tssoftware.net>
+Date:   Fri Oct 25 16:59:48 2013 -0400
+
+    Add punctuation to level descriptions/hints.
+
+[33mcommit 154db233b0ea3de625f2fb8328e3239e118f1423[m
+Author: Tanner Smith <tanner@tssoftware.net>
+Date:   Fri Oct 25 16:28:24 2013 -0400
+
+    Add punctuation at the end of generic strings.
+
+[33mcommit 2f79a2950879f4f62cbe3bc6f2e0f2076a9bee90[m
+Merge: 5766711 d2395fd
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Oct 25 08:34:47 2013 -0700
+
+    Merge pull request #116 from kchien/refactor_v3
+    
+    Refactor v3
+
+[33mcommit 5766711574c7da4a27ed65ee50c60dd3d03b262a[m
+Merge: 2b56dd9 e43c7b6
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Fri Oct 25 08:29:51 2013 -0700
+
+    Merge pull request #117 from mzahir/fix/commit-hash
+    
+    Add full hash as answer for log.rb
+
+[33mcommit 7c4d1e1419864bf3754cd99311fe67b6f6e4d0dc[m
+Author: Antti Keränen <detegr@gmail.com>
+Date:   Fri Oct 25 13:28:24 2013 +0300
+
+    Syntax fix for Ruby 1.8
+
+[33mcommit 85e24485fd0b04756976eb54e76360667f71bfdb[m
+Author: Antti Keränen <detegr@gmail.com>
+Date:   Fri Oct 25 12:17:52 2013 +0300
+
+    Added level: push_tags
+
+[33mcommit e43c7b6d04dc1b75c012e61c39d08abfb0dd293c[m
+Author: Musannif Zahir <mzahir@gmail.com>
+Date:   Fri Oct 25 11:11:24 2013 +0500
+
+    Add full hash as answer for log.rb
+
+[33mcommit d2395fd807db815f8acc9db6e7c8faaf86749c70[m
+Author: Kenrick Chien <ken.chien@gmail.com>
+Date:   Thu Oct 24 21:16:49 2013 -0400
+
+    use 1.8.7 hash syntax
+
+[33mcommit 5c7c808f8ee9000489e4124cd711c672e6803df9[m
+Author: Kenrick Chien <ken.chien@gmail.com>
+Date:   Thu Oct 24 21:00:49 2013 -0400
+
+    refactor to use let
+
+[33mcommit 2b56dd9484a01d7ce0f3bf41fe186df199bc7648[m
+Merge: 8482794 cef0e30
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Oct 24 04:27:22 2013 -0700
+
+    Merge pull request #113 from thestonefox/master
+    
+    Added a sweet new level,
+
+[33mcommit 8482794139ce42ef8efc55acf544149e68e090ec[m
+Merge: 5346c51 68cf1cf
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Oct 24 12:26:07 2013 +0100
+
+    Merge remote-tracking branch 'jlghtuse/master'
+    
+    Conflicts:
+            levels/rm_cached.rb
+
+[33mcommit 5346c5178c1574d2ebc846031148a2ff4699ce18[m
+Merge: 6b4ea5b 51cd7c4
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Oct 24 04:21:54 2013 -0700
+
+    Merge pull request #106 from tyler569/master
+    
+    Clarified 'remove the file system' in rm_cached level
+
+[33mcommit 6b4ea5b9bcfbaa782825f6137e2b33a915ea5cd3[m
+Merge: c6dcff6 62378cd
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Thu Oct 24 04:21:10 2013 -0700
+
+    Merge pull request #105 from wjk/fix-readme
+    
+    Fixed typo in README.
+
+[33mcommit cef0e30d3caa69ac4a00258107555a21db9c8627[m
+Author: thestonefox <me@harveyball.com>
+Date:   Thu Oct 24 11:02:05 2013 +0000
+
+    Added a sweet new level,
+    this is the third time I've typed this.
+    
+    I should take this more seriously,
+    so I will type something more important:
+    
+    This level tests your skillz in how to checkout a tag
+    that shares the same name as a branch
+
+[33mcommit 68cf1cf2e4d8c2c4a0549f7fafe26776dd4dfef8[m
+Author: Boris Egorov <jightuse@gmail.com>
+Date:   Thu Oct 24 14:29:28 2013 +0700
+
+    Remove hint from question
+    
+    Question says that user needs to find filename which need to be removed
+    from staging area and spoiled answer.
+
+[33mcommit 4b3bf993927e8d209dd6c809538b7470deb12aeb[m
+Author: Stephen Celis <stephen@stephencelis.com>
+Date:   Wed Oct 23 21:54:33 2013 -0700
+
+    Allow for `return' in solutions
+    
+    Signed-off-by: Stephen Celis <stephen@stephencelis.com>
+
+[33mcommit 51cd7c42346a41b140f26fb3d76ee74148df114e[m
+Author: Tyler Philbrick <tjp569@gmail.com>
+Date:   Wed Oct 23 20:35:09 2013 -0400
+
+    Clarified 'remove the file system' in rm_cached level
+
+[33mcommit 62378cd32905c772cf24e11bcebf499550a08541[m
+Author: wjk <wjk011@gmail.com>
+Date:   Wed Oct 23 17:34:34 2013 -0400
+
+    Fixed typo in README.
+
+[33mcommit c6dcff6fb7b52f183ee50e46a65bf1d72b6f98eb[m
+Merge: 59600a7 083d3ce
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Wed Oct 23 13:15:26 2013 -0700
+
+    Merge pull request #103 from rjw57/rename-commit-fix-wording
+    
+    rename_commit.rb: clarify meaning of 'first' commit
+
+[33mcommit 083d3ce49ec6ff485ca7b4c655e6d77937ad16d2[m
+Author: Rich Wareham <rjw57@cam.ac.uk>
+Date:   Wed Oct 23 17:15:08 2013 +0100
+
+    rename_commit.rb: clarify meaning of 'first' commit
+    
+    The wording of the challenge suggests that one needs to amend the commit
+    that one would get from the following command:
+    
+    ```console
+    $ git rev-list HEAD | tail -1
+    ```
+    
+    i.e. the first commit which was made. The "first" commit this level
+    talks about is, to my mind, the second commit.
+    
+    After a degree of Googling, I found the magic incantation to amend the
+    root commit. This is non-trivial with ``git rebase``. Admittedly I
+    should've checked which commit actually *had* the typo but this problem
+    would've been avoided all together had the challenge been clearer.
+
+[33mcommit 59600a7fa33520594c95887cc69fdd828d65a912[m
+Merge: c944751 1efa965
+Author: Gary Rennie <gazler@gmail.com>
+Date:   Wed Oct 23 06:59:03 2013 -0700
+
+    Merge pull request #101 from andyhmltn/readme-contradiction-change
+    
+    Removed a contradiction in the README
+
+[33mcommit 1efa965f7f04654001a57a52ed9c626551038b7d[m
+Author: Andy Hamilton <andyhmltn@gmail.com>
+Date:   Wed Oct 23 14:48:05 2013 +0100
+
+    Changed the code example in the README as it contradicts what is said ~10 lines later
+
+[33mcommit c944751a1563dd51a672f4ae47e207a7a3e816b4[m
+Author: matt.freer <matt.freer@gmail.com>
+Date:   Wed Oct 23 13:47:07 2013 +0100
+
+    Feature: Added repack level
+
+[33mcommit 91c8a6da838d4aab067cb48b20db12d9ee308252[m[33m ([m[1;33mtag: v0.3.2[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 22 17:09:21 2013 +0100
+
+    Version Bump: 0.3.2
+    
+    [ci skip]
+
+[33mcommit 431dab4fd2dc1fe05b60ae0fd62332810a113c54[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 22 17:02:43 2013 +0100
+
+    Fix: Deprecation Warnings
+    
+    Because the patch to Grit overrides a previously defined constant, a
+    deprecation warning is raised.  The constant is now undefined before
+    defining it.
+
+[33mcommit f6369e84cb8be4809a99cb79fa3e2965914aa95a[m[33m ([m[1;33mtag: v0.3.1[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 22 16:44:00 2013 +0100
+
+    Version Bump 0.3.1
+
+[33mcommit fa575e07ed589f7901539e85539c814aa8660129[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Oct 22 16:37:12 2013 +0100
+
+    Fix: Final level now works on ruby 2.0.0
+    
+    This was patched in Gitlab at:
+      https://github.com/gitlabhq/grit/pull/9
+    
+    The final level will now correctly identify valid contributors.
+
+[33mcommit 8e73781b6c28387b89e9b10a484513ca287f2294[m[33m ([m[1;33mtag: v0.3.0[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Jul 21 22:18:31 2013 +0100
+
+    Fix: Ensure git config for travis-ci is global
+
+[33mcommit 43d6c6a1ceb1327164f6463b0d4b4ef194e50f9f[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Jul 21 22:10:16 2013 +0100
+
+    3rd attempt at a travis-ci fix
+
+[33mcommit b72e6da3f4b4003ac3cf58b2cdbe590879e39afc[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Jul 21 22:05:56 2013 +0100
+
+    Fix for travis-ci failing on git
+    
+    Ensure the config is set after the git repo is initialized.
+
+[33mcommit d0096379e769fac9763204c9380505440629e177[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Jul 21 22:00:42 2013 +0100
+
+    Potential fix for travis-ci failing builds
+    
+    Setting the git config for the tests may fix the builds
+
+[33mcommit 1f0291f1784c2901c14eafbf4fb78802c5fe1fe1[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Jul 21 21:51:47 2013 +0100
+
+    Fix: Ruby 2.0.0 support
+    
+    It appears in Grit, the getord method is not patched into strings
+    correctly for ruby 2.0.0
+    
+    Due to the lack of maintenance on the grit gem, the patch has been
+    applied directly into Gtihug.
+    
+    The patch is available at:
+      https://github.com/mojombo/grit/pull/152/files
+    
+    This fixes issue #99
+
+[33mcommit 09a7cc3ef777756c63bd41536b4c1dfa7726160e[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Mar 12 18:30:46 2013 +0000
+
+    Force travis to re-run on a different box
+
+[33mcommit c6b86311153f2347a4a3df7d9f44a683fa2690b2[m[33m ([m[1;33mtag: v0.2.12[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 11 21:55:16 2013 +0000
+
+    Version bump to 0.2.12
+
+[33mcommit c39b47ea2a0d98c1b76f96a347cd3e5c29062122[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 6 12:15:55 2013 +0000
+
+    Create LICENCE.txt
+
+[33mcommit 3df8ef4e9c9329a302ada6434be8e1fe8d924f0f[m
+Merge: 7f71c2c 55bde2e
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 6 01:28:24 2013 -0800
+
+    Merge pull request #98 from sumbach/override-global-excludesfile
+    
+    Override core.excludesfile and add a sample .swp file for gitignore level
+
+[33mcommit 55bde2ec0691db8ccefe2983b10cdf8760384b6e[m
+Author: Sam Umbach <sam@thinkrelevance.com>
+Date:   Tue Mar 5 01:36:08 2013 -0500
+
+    Override core.excludesfile and add a sample .swp file for gitignore level
+
+[33mcommit 7f71c2c9e2db2594e1cb698bfec4992db635c051[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Feb 25 18:33:36 2013 +0000
+
+    Revert "Chore: Add ruby 2.0.0 to Travis CI"
+    
+    This reverts commit 7d5a8d4a25f98f3ddb9e310c02803499b1a447ae.
+    
+    More work is required for ruby 2.0.0 support.  Currently Grit does
+    not seem to support 2.0.0
+
+[33mcommit 7d5a8d4a25f98f3ddb9e310c02803499b1a447ae[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Feb 24 18:05:12 2013 +0000
+
+    Chore: Add ruby 2.0.0 to Travis CI
+
+[33mcommit b3c960df03278953430a722c28df059d79a3823b[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Dec 3 20:41:31 2012 +0000
+
+    Bug: Stash level solution fails on 1.8.7
+    
+    Thanks to Travis CI :heart: it was discoved that the stash level was
+    failing on 1.8.7
+    
+    The reason for this is `repo.status.changed` is a hash in 1.9.2
+    
+        {"lyrics.txt"=>#<Grit::Status::StatusFile>}
+    
+    But in 1.8.7 it is an array:
+    
+        [["lyrics.txt", #<Grit::Status::StatusFile]]
+    
+    The simplest solution I could find is to explicitly convert it to
+    an array regardless of the type, flatten it and check for "lyrics.txt"
+
+[33mcommit af65a649b624fcd69bef916af5b2aa4a16e81556[m
+Author: Anton Vasin <magnumsmail@gmail.com>
+Date:   Mon Dec 3 12:16:13 2012 +0400
+
+    Add stash level
+    
+    User must stash already made changes
+
+[33mcommit 485c649350ea24de017e4b0ff997c9f1a5fab2b5[m
+Author: Anton Vasin <magnumsmail@gmail.com>
+Date:   Mon Dec 3 11:17:20 2012 +0400
+
+    typo fix
+
+[33mcommit 0865b14401d0447ef0efe5ee0afcf0b9f30c7e10[m
+Merge: 59a651a 7ec540f
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Dec 2 10:44:53 2012 -0800
+
+    Merge pull request #95 from markus1189/master
+    
+    Small improvements - 24 pull requests
+
+[33mcommit 7ec540fbb40a8bf2ae2706f1216f11e34493bd08[m
+Author: Markus Hauck <markus1189@gmail.com>
+Date:   Sun Dec 2 19:14:55 2012 +0100
+
+    Better way to remove file extension in Level#setup
+
+[33mcommit dc4ecc395f3d07694a038d336a53f088bae00064[m
+Author: Markus Hauck <markus1189@gmail.com>
+Date:   Sun Dec 2 19:06:12 2012 +0100
+
+    Simplify UI#word_box and add test for uneven length
+
+[33mcommit 59a651a4ba5a84f25f5dc02ae3e9b08d6f9dea15[m
+Merge: 4cd59f9 fa98cf2
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Dec 2 07:57:36 2012 -0800
+
+    Merge pull request #94 from jasnow/master
+    
+    Removed trailing blanks/spaces from project
+
+[33mcommit fa98cf23e608534ef82626637d2e6014fccc0988[m
+Author: Al Snow <sqctest02@gmail.com>
+Date:   Sun Dec 2 10:53:11 2012 -0500
+
+    removed trailing spaces in project
+
+[33mcommit 4cd59f906a454c8238222ab7d61ae2cd32c1f442[m
+Merge: a874ed0 c7fc5fe
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Dec 2 06:04:12 2012 -0800
+
+    Merge pull request #93 from Pipeliner/master
+    
+    say that next level is not based on previous
+
+[33mcommit c7fc5fe83eb46ace876d1b8db8743cfd70bf88ec[m
+Author: Vadim Evard <v.e.evard@gmail.com>
+Date:   Sun Dec 2 17:53:31 2012 +0400
+
+    Clearly say that next level is not based on previous
+
+[33mcommit a874ed09f40c61870371d28076912d075a9ed53c[m
+Merge: 8ba5ea2 b37abdc
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Dec 1 13:10:43 2012 -0800
+
+    Merge pull request #92 from phlipper/patch-1
+    
+    add GitHub Flavored Markdown to README
+
+[33mcommit b37abdc27b3813b91eaf1f8fd87f3fe23ae1616b[m
+Author: Phil Cohen <github@phlippers.net>
+Date:   Sat Dec 1 12:22:48 2012 -0800
+
+    add GitHub Flavored Markdown to README
+    
+    * This makes the example code easier to read,
+      especially when perusing the docs on github
+
+[33mcommit 8ba5ea2ebd8abc35424ee85e63bc885246f098a9[m
+Merge: 8a8201e fdcb8b7
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Nov 14 10:50:18 2012 -0800
+
+    Merge pull request #91 from holly3600/master
+    
+    edited the hint for bisect level
+
+[33mcommit fdcb8b76807f9406c00586fbcc49de7095de90be[m
+Author: holly3600 <wujingyi@seas.upenn.edu>
+Date:   Wed Nov 14 13:44:45 2012 -0500
+
+    edited prompt for clarity
+
+[33mcommit 8a8201e0a0a51f90a0905c76adab937d51ea3b0f[m
+Merge: c9332d3 59e4b54
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 13 00:13:38 2012 -0800
+
+    Merge pull request #89 from Gazler/runner
+    
+    Feature: Add Integration tests and a full run of Githug
+
+[33mcommit 59e4b54556360b4d9a5b7ddaeffc16f0a1fcf686[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Nov 13 08:11:27 2012 +0000
+
+    Skip config level for Travis
+
+[33mcommit 134de048b8a8f820c979450d80a10a7ec8590196[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Nov 12 22:18:20 2012 +0000
+
+    Feature: Add Integration tests and a full run of Githug
+    
+    All of the levels are now tested via the Githug CLI except:
+     * Any level requiring user input (interactive rebase, merge conflicts)
+     * The final contribute level
+    
+    The tests can be run with rake as normal
+
+[33mcommit c9332d3a6577da0369164eaf1d3c4763f648ee47[m[33m ([m[1;33mtag: v0.2.11[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Nov 5 20:51:34 2012 +0000
+
+    Version bump to 0.2.11
+
+[33mcommit 0e7d3b0310b4a10538ae0b1a8bbef406653f2729[m
+Author: Thameera Senanayaka <thameera123@gmail.com>
+Date:   Sun Nov 4 20:47:22 2012 +0530
+
+    Added merge conflict level
+    
+    Signed-off-by: Thameera Senanayaka <thameera123@gmail.com>
+
+[33mcommit 60c8c15bd167f0931d30a8d979dd02df70aa70cd[m
+Author: Thameera Senanayaka <thameera123@gmail.com>
+Date:   Sun Nov 4 19:11:09 2012 +0530
+
+    Added checkout tag level
+    
+    Signed-off-by: Thameera Senanayaka <thameera123@gmail.com>
+
+[33mcommit b20bac73c5f7e41ce1bc06bf84e0637c9d0b0d57[m[33m ([m[1;33mtag: v0.2.10[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Oct 25 20:51:02 2012 +0100
+
+    Version bump to 0.2.10
+
+[33mcommit a50a014033f208270fc4253b9b231d40909adb26[m
+Author: Thameera Senanayaka <thameera123@gmail.com>
+Date:   Thu Oct 25 06:48:00 2012 +0530
+
+    Fixed not accepting the valid solution
+    
+    Signed-off-by: Thameera Senanayaka <thameera123@gmail.com>
+
+[33mcommit 9c2766da4aa03d4fe18210d1aaf2d74c2e4a07d6[m
+Author: Thameera Senanayaka <thameera123@gmail.com>
+Date:   Mon Oct 22 23:58:10 2012 +0530
+
+    Fixed initial state being a valid solution
+    
+    Signed-off-by: Thameera Senanayaka <thameera123@gmail.com>
+
+[33mcommit 053c9ac0dc9038ce14ce9d4148749b953176cc05[m
+Author: Thameera Senanayaka <thameera123@gmail.com>
+Date:   Sun Oct 21 21:04:42 2012 +0530
+
+    Added reset soft level
+    
+    Signed-off-by: Thameera Senanayaka <thameera123@gmail.com>
+
+[33mcommit 96f28f46127c642b1a5399ed60c8aebae7d82a32[m[33m ([m[1;33mtag: v0.2.9[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 6 19:39:41 2012 +0100
+
+    Version bump to 0.2.9
+
+[33mcommit d924b488b00737dc3c10f20392ea27d1d088b297[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Oct 6 19:38:31 2012 +0100
+
+    Update solution for bisect level to check for the right commit
+
+[33mcommit 2d19bdd5e59bb4d43dbd5026eddd9c605d5655c8[m[33m ([m[1;33mtag: v0.2.8[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Sep 30 17:20:48 2012 +0100
+
+    Version Bump to 0.2.8
+
+[33mcommit 54c36a4c01f5eead999d020e332435fbaea1f527[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Sep 30 17:19:30 2012 +0100
+
+    Bug: Level 10 not initializing correctly
+    
+    Level 10 (rm_cached) was still using the old repo.init(false) method
+    which was causing a fatal error on the reset of the repository.
+
+[33mcommit bebaf028c53f36a5608caa6e8c7f5ebf58e9e138[m
+Merge: 09db169 61397a2
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Sep 30 16:57:51 2012 +0100
+
+    Merge remote branch 'hackl/bisect_harder_math'
+
+[33mcommit 09db169ea58e042938e43ab38c6ac7e28f6411ba[m
+Merge: 9bf15e5 121ab69
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Sep 28 14:57:21 2012 -0700
+
+    Merge pull request #83 from elnin0/master
+    
+    Fixed the solution in the stage_lines level so it works if diff.external is set
+
+[33mcommit 61397a2a567860639eab18f3bfd346608ce4149f[m
+Author: Florian Sesser <fs@it-agenten.com>
+Date:   Thu Sep 27 01:23:41 2012 +0200
+
+    A few new math puzzles for the bisect level
+    
+    Meant to make it more clear that one should use the automated test
+    and the ``bisect run'' method instead of looking at the code in
+    a ``git log -p'' session (which was what I did).
+
+[33mcommit 121ab698ecefa08a69335cca999f8630b47e957c[m
+Author: Nino Reger <nino@nr-server.de>
+Date:   Wed Sep 26 22:05:26 2012 +0200
+
+    add --no-ext-diff to solution so it works if  diff.external is set in gitconfig
+
+[33mcommit 9bf15e55df065cfe74c7ba7e7c20ad7e8aacccab[m
+Merge: f8cb710 e154e9f
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Aug 12 10:02:56 2012 -0700
+
+    Merge pull request #81 from jduan/rebase_and_push
+    
+    add a level for pushing commits to remote
+
+[33mcommit e154e9fb58bce13a76533917e0e0f556924a6043[m
+Author: Jingjing Duan <jingjing.duan@hulu.com>
+Date:   Tue Aug 7 14:32:29 2012 -0700
+
+    fix a failing test
+
+[33mcommit 2f13e58b8463655b838281c9ddf444b1101b57fb[m
+Author: Jingjing Duan <jingjing.duan@hulu.com>
+Date:   Tue Aug 7 14:08:06 2012 -0700
+
+    add a level for pushing commits to remote
+
+[33mcommit f8cb7107e5792851faff0be5e49d99b894eb4978[m
+Merge: eb5b83a 4be8ba6
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Aug 4 03:34:18 2012 -0700
+
+    Merge pull request #80 from petersont/patch-1
+    
+    Clarified description for level 16
+
+[33mcommit 4be8ba687ad6d722adb2e517fec75c40082bebbf[m
+Author: Peterson Trethewey <peterson.trethewey@gmail.com>
+Date:   Sat Aug 4 00:49:09 2012 -0700
+
+    Clarified description for level 16
+    
+    The instructions said "you don't want to keep the files"  That isn't accurate.  You want to keep the files, not the change.
+
+[33mcommit eb5b83a672854f5c62101564cc6e7fcea16b6013[m
+Merge: ae5cb1f bafcfa8
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Jul 25 00:23:22 2012 -0700
+
+    Merge pull request #79 from cczona/ammend_to_amend
+    
+    fix 'ammend' typo in level/file name
+
+[33mcommit bafcfa8c367c526a2aba830e63623252f04fc3c2[m
+Author: cczona <cczona@gmail.com>
+Date:   Wed Jul 25 00:12:37 2012 -0700
+
+    fix typo introduced by typo fix
+
+[33mcommit 55636f0ca5f08a3a84f8c81dd125c67533f1fcdd[m
+Author: cczona <cczona@gmail.com>
+Date:   Tue Jul 24 22:13:16 2012 -0700
+
+    fix 'ammend' typo in level/file name
+
+[33mcommit ae5cb1f6d2873e4be924f5409593c32a78cc8413[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Jul 19 23:43:12 2012 +0200
+
+    Update README.md
+
+[33mcommit fb602b884f29ce3c491108c94a7733d4ae9a17d3[m[33m ([m[1;33mtag: v0.2.7[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Jul 19 18:58:42 2012 +0100
+
+    Version bump to 0.2.7
+
+[33mcommit d74d7193553525fed411b3774a4b0cc9d2101d7e[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Jul 19 18:57:19 2012 +0100
+
+    Issue #77: Bisect level not working on ruby 1.8.7
+    
+    The repository is not valid when created from ruby 1.8.7 to fix
+    this, `git init` is called explicitly on the bisect level after
+    copying the .githug folder
+
+[33mcommit 685ba6ffbef64ac9180d5dfe08ffa37c143900a9[m[33m ([m[1;33mtag: v0.2.6[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Jul 14 14:09:39 2012 +0100
+
+    Version bump to 0.2.6
+
+[33mcommit 8ba7b5471bd1924ba79f2fbdcf4d935f4f7aaa57[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Jul 14 14:07:27 2012 +0100
+
+    Issue #74:  Commit Amend level not passing when the format of git
+    log has been changed in the .gitconfig file.  The repositories
+    .gitconfig file is overwritten at the point of checking for a
+    solution to force the git log format to be the default.
+    
+    https://github.com/Gazler/githug/issues/74
+
+[33mcommit 737044223c465382ab7eb2c8d4169507a2786364[m
+Merge: e88000f 3afa7a9
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Jul 14 13:51:45 2012 +0100
+
+    Merge remote branch 'luhn/master'
+
+[33mcommit e88000ffa8e7b8cbe26b73b9dcf6e03d8899c8b2[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Jul 4 19:49:23 2012 +0100
+
+    Bug: Create a .gitignore file per level reset
+    
+    The .gitignore file was created on initialization of the git_hug folder
+    however this was causing issues with certain levels if the .gitignore
+    file was overwritten (such as on the gitignore level) so it now
+    created the file per level reset.
+    
+    See https://github.com/Gazler/githug/issues/70 for more details
+
+[33mcommit 3afa7a90a57994971e128ab3df9a0fea99de8be2[m
+Author: Theron Luhn <theron@luhn.com>
+Date:   Wed Jul 4 10:04:46 2012 -0700
+
+    Change git command used to delete commit in levels/restore.rb
+    "git checkout HEAD^" only detaches the repo head.  To actually delete a commit from the master branch, "git reset --hard HEAD^" is correct.
+
+[33mcommit dc26819f67fb9fc8cc0a1719713aea932d0024a5[m[33m ([m[1;33mtag: v0.2.5[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Jul 3 18:47:44 2012 +0100
+
+    Version bump
+
+[33mcommit 01d1a30d628465176a4d87c83a03006ee5c61e97[m
+Author: Theron Luhn <theron@luhn.com>
+Date:   Sun Jul 1 00:22:22 2012 -0700
+
+    Add  level.
+
+[33mcommit 49c334f09f919847006f06327f70e34e1e1bbc9f[m
+Author: Theron Luhn <tjluhn@gmail.com>
+Date:   Sat Jun 30 23:24:53 2012 -0700
+
+    Change typo so it's easier to spot.
+
+[33mcommit 8c7290477e815a3eb62a109c7fefe23f2a84d85d[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri May 18 11:37:56 2012 +0200
+
+    Update README.md
+
+[33mcommit 00a2551d0b905df05db633aeedcce0c90792e4ac[m
+Merge: e6fda83 969b189
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon May 7 10:10:49 2012 -0700
+
+    Merge pull request #69 from annoyed/patch-1
+    
+    Added clarification to the description.
+
+[33mcommit 969b18946cb8481b2791b109b5e1759955b3e76d[m
+Author: annoyed <exists@gmail.com>
+Date:   Mon May 7 08:09:33 2012 -0700
+
+    Added clarification to the description.
+
+[33mcommit e6fda8328908986405f381654e55227ca090b6ea[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun May 6 12:35:53 2012 +0100
+
+    fix for cherry-pick level
+    
+    Because of the way init_from_level works with the .githug folder
+    
+    Combined with having a README.md in the folder and the root
+    
+    A stash is required
+
+[33mcommit ff68d6456a5660f788600d8b854d696223566178[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Apr 28 14:40:36 2012 +0100
+
+    added bisect level
+
+[33mcommit 41eb42f10390561b02605fb1beb75619c9ba7db5[m
+Merge: 8a883ec 8839689
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Apr 28 14:24:32 2012 +0100
+
+    Merge remote-tracking branch 'guywithnonose/bisect'
+
+[33mcommit 8a883ecb95a3161fb5fe207c50330d638d2c3a1b[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Apr 26 18:17:26 2012 +0100
+
+    Updated the tests for the changes to repo.init
+
+[33mcommit fe5f8b653077b04ca8f4dea67a35daf8a96a839e[m
+Author: annoyed <exists@gmail.com>
+Date:   Thu Apr 26 09:28:30 2012 -0700
+
+    Removed the option to perform an inital commit of .gitignore from repo.init.
+
+[33mcommit 8839689193fabfcc7ae254a2611ede581363d563[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Mon Apr 23 19:18:41 2012 -0400
+
+    Update HEAD to point to master
+
+[33mcommit 149269353b8d7bf687b81dffee1866f8eb916f7a[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Sun Apr 22 21:46:22 2012 -0400
+
+    Add the bisect level
+
+[33mcommit 5356fc98de312b3c0a1d6ea04af674333207f4ad[m[33m ([m[1;33mtag: v0.2.4[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Apr 23 04:25:46 2012 +0100
+
+    merged some level fixes for 0.2.4
+
+[33mcommit ade52d23c011b2455628d15f70855f4f1bd72fe1[m
+Merge: 0f8b756 05d5a02
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 20:20:40 2012 -0700
+
+    Merge pull request #62 from guywithnose/improveRevert
+    
+    Allow revert to be accomplished with rebase
+
+[33mcommit 0f8b7567501f4f334dfe5630f44b7f53ce3fd0ae[m
+Merge: 8f00cf6 cc62b63
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 20:18:22 2012 -0700
+
+    Merge pull request #61 from guywithnose/AmendTypo
+    
+    Fix typo in 'amend'
+
+[33mcommit 8f00cf6e76cf5b1520923b493c07485a8d4c21ef[m
+Merge: 4df625b 897018f
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 20:18:00 2012 -0700
+
+    Merge pull request #60 from guywithnose/1.8Compatibility
+    
+    Change hash systax to support ruby 1.8
+
+[33mcommit 05d5a0215b6a0532f7fe0365d5478691c7b9f26f[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Sun Apr 22 21:21:21 2012 -0400
+
+    Allow revert to be accomplished with rebase
+
+[33mcommit cc62b638d84f4a50d0a8e24ff0501500a07781aa[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Sun Apr 22 18:46:43 2012 -0400
+
+    Fix typo in 'amend'
+
+[33mcommit 897018fa963439d42f14c01ac83c7837e7d83507[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Sun Apr 22 17:00:20 2012 -0400
+
+    Change hash systax to support ruby 1.8
+
+[33mcommit 4df625bb6b1d248dacc6863f6cc9260a6174632e[m[33m ([m[1;33mtag: v0.2.3[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 08:37:48 2012 +0100
+
+    Fixed 9 levels that I broke...oops
+
+[33mcommit c980baf799fa0eeab57d3cd2a29627f9f49685c4[m[33m ([m[1;33mtag: v0.2.2[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 07:53:32 2012 +0100
+
+    fixed bug where the .gitignore file was all one one line
+
+[33mcommit ed488ece71ab733ab9df82f1a62752f5ea45fa4a[m[33m ([m[1;33mtag: v0.2.1[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Apr 22 07:13:08 2012 +0100
+
+    version 0.2.1
+
+[33mcommit 661de1089f116282f89339a9980defd1b696b93c[m
+Merge: ce05a2f be984ac
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Apr 21 23:11:44 2012 -0700
+
+    Merge pull request #55 from guywithnose/revert
+    
+    Add revert level
+
+[33mcommit be984ac26ac2e317f73dd104860c4e027b524b41[m
+Author: Robert Bittle <guywithnose@gmail.com>
+Date:   Fri Apr 20 14:24:26 2012 -0400
+
+    Add revert level
+
+[33mcommit ce05a2fe0b929489bb015168afedd44859e7858f[m
+Merge: f9f4a2f fe05099
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Apr 11 20:18:16 2012 -0700
+
+    Merge pull request #53 from nohat/master
+    
+    Fix stage_lines level to work even when color.diff=always is set in git config
+
+[33mcommit fe050991066f0780d7ae40a575f03324f0ecde55[m
+Author: David Friedland <friedland@groupon.com>
+Date:   Wed Apr 11 17:08:44 2012 -0700
+
+    Test diff contents correctly even if color is turned on by default in user's git config
+
+[33mcommit f9f4a2fd364b63ab830abf7fc8039f66938e46fd[m
+Merge: 17cf7fb 7b38a0c
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Apr 3 10:55:04 2012 -0700
+
+    Merge pull request #52 from AlbinTheander/master
+    
+    Fixed description and hint for cherry-pick level
+
+[33mcommit 7b38a0ccb631197a4ff01ccc24d387c0b752366c[m
+Author: Albin Theander <Albin.Theander@jayway.com>
+Date:   Tue Apr 3 19:49:26 2012 +0200
+
+    Fixed description and hint message for cherry-pick level
+
+[33mcommit 17cf7fb0ad699e8a54bcec105d17051bf4abc838[m
+Merge: bec4222 92b559e
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Apr 2 05:18:17 2012 -0700
+
+    Merge pull request #47 from vors/master
+    
+     Clarify task for level 'reset'
+
+[33mcommit bec42224004a49d001ab602e43a1c6db71590aa1[m
+Merge: ff8365a c757cd3
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Apr 2 05:17:10 2012 -0700
+
+    Merge pull request #48 from ebouchut/typo_rm_level
+    
+    Fixed typo in level rm
+
+[33mcommit c757cd3caeab2ccdc485da59caa9e80a6abc14ea[m
+Author: Eric Bouchut <ebouchut@gmail.com>
+Date:   Mon Apr 2 13:46:10 2012 +0200
+
+    Fixed typo in level rm
+
+[33mcommit 92b559eb232f20c4d7666584b59755f78a94c05c[m
+Author: Sergey Vorobyev <xvorsx@gmail.com>
+Date:   Sat Mar 31 21:54:39 2012 +0400
+
+    Clarify task for level 'reset'
+
+[33mcommit ff8365a8f6905b04891d6700a96887de6ed9a13a[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 28 21:47:54 2012 +0100
+
+    added .gitignore to .gitignore so that it doesn't affect the init_from_level levels
+
+[33mcommit 7107d094b92ed6649a15448be7abba48e0384ce7[m
+Author: Andrey <aslushnikov@gmail.com>
+Date:   Wed Mar 28 03:05:49 2012 +0400
+
+    Added cherry-pick level
+
+[33mcommit 2444cc2efcd5c7ce7c773b556f9ddce6e17de70c[m
+Merge: cf343f0 762d698
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Mar 27 19:15:14 2012 +0100
+
+    added merge_squash level
+
+[33mcommit cf343f0cdbc7d04705af12af2db113dc02d7e328[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Mar 27 19:13:18 2012 +0100
+
+    added merge_squash level
+
+[33mcommit 762d6981394fc466da10485245dfeea7297d9232[m
+Author: Wojciech Ogrodowczyk <wojtek@7tonlnu.pl>
+Date:   Sun Mar 25 22:16:05 2012 +0200
+
+    Add a merge --squash level.
+
+[33mcommit e2498be055a9fc0ef120990bf98b5d917b0125c3[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 22:24:29 2012 +0200
+
+    Update README.md
+
+[33mcommit e54fc43284f307d47031e56d2393012f8d3750a2[m[33m ([m[1;33mtag: v0.2.0[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 21:20:12 2012 +0100
+
+    0.2.0 release with windows support
+
+[33mcommit 32bd91dd27d233f3373b6dfdf66ffd5568cd72b1[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 21:18:24 2012 +0100
+
+    Added test for non-colored output in windows
+
+[33mcommit 1e6844df5998c3942c55a2982365c1180d52d044[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 21:16:17 2012 +0100
+
+    windows support added for all levels
+
+[33mcommit 4ad059b9be6d86a80f807c23104716519c0040f3[m
+Merge: efcf8f3 6aa005b
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 21:05:11 2012 +0100
+
+    Merge remote-tracking branch 'origin/master' into windows_support
+
+[33mcommit 6aa005bf00c137e61e1037f33b00eefc9405cd5b[m
+Merge: 3c25ac5 0e0e4c1
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 19:21:35 2012 +0100
+
+    Merge branch 'master' of https://github.com/pingtimeout/githug
+
+[33mcommit 3c25ac5b4c3ab3feec9d2970b6725cc629ad4c93[m
+Merge: 1c7b5e1 21dc95d
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 25 19:20:53 2012 +0100
+
+    merged fixes for stage_lines level
+
+[33mcommit 0e0e4c1cba0ef6af61f83bd146a5549659564a67[m
+Author: Pierre Laporte <pierre@pingtimeout.fr>
+Date:   Sun Mar 25 15:24:14 2012 +0200
+
+    Added reorder level in level.rb
+
+[33mcommit 90581d083e8a98683c5241cf1381edcef95eae58[m
+Author: Pierre Laporte <pierre@pingtimeout.fr>
+Date:   Sun Mar 25 15:16:46 2012 +0200
+
+    Corrected the order of commits in the solution proc
+
+[33mcommit ac34bd8d7adb17d482db0b04a3854e6e7b489e48[m
+Author: Pierre Laporte <pierre@pingtimeout.fr>
+Date:   Sun Mar 25 12:18:41 2012 +0200
+
+    Added a new level where the user is asked to reorder commits using the git rebase -i command
+
+[33mcommit 1c7b5e1be9c701a1ad997ad83be6d31167a76714[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Mar 24 17:40:05 2012 +0000
+
+    added find_old_branch level
+
+[33mcommit 02daaf4d243fa4676ce727c5e90eff2b74fec810[m
+Author: mcramm <GMCramm@gmail.com>
+Date:   Tue Mar 20 16:57:31 2012 -0600
+
+    Add find_old_branch level
+
+[33mcommit 961800b45881f79bfd27c63f0266a90e199ebafc[m
+Merge: 471c1d5 103b08f
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sat Mar 24 08:42:49 2012 -0700
+
+    Merge pull request #38 from sharnik/patch-1
+    
+    Update levels/stage_lines.rb
+
+[33mcommit 103b08fac94512eb07f15786254a422c19a83329[m
+Author: Wojtek Ogrodowczyk <wojtek@7tonlnu.pl>
+Date:   Sat Mar 24 14:47:33 2012 +0100
+
+    Update levels/stage_lines.rb
+
+[33mcommit efcf8f3e089cd693ac3df3c6ba8990ee28119462[m
+Merge: 3d66453 471c1d5
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 23 19:47:28 2012 +0000
+
+    added new levels for windows testing
+
+[33mcommit 3d66453cd5e0297b8e29a541330aad88031280fc[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 23 19:48:53 2012 +0000
+
+    all 0.1.7 levels working in windows
+
+[33mcommit 21dc95d508c8ef27d348eec82dd83ddec399601d[m
+Author: Aaron Kuehler <aaron.kuehler@gmail.com>
+Date:   Thu Mar 22 20:50:08 2012 -0400
+
+    clarify challenge and hint text of stage_lines level
+
+[33mcommit fbccc2e4e4531506bb3a0c044c273c0a9f0cd378[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 23 00:31:09 2012 +0000
+
+    Working in windows up until the merge level
+
+[33mcommit 67b1e7065ffdafe0ff92b2011d9bf78560c310db[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 23 00:17:03 2012 +0000
+
+    fixed up until branch_at.rb level
+
+[33mcommit 471c1d538e7852ceef7fc9c1030d341efda53bec[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 22 23:34:23 2012 +0000
+
+    Update README.md
+
+[33mcommit be5c11eb4f3dca04f3b59d264382ef86bc1545f0[m[33m ([m[1;33mtag: v0.1.8[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 22 23:13:34 2012 +0000
+
+    Version 0.1.8
+
+[33mcommit fdf9ee47045485fa728d4370c0bfe23913be9318[m
+Merge: 360359c 46afd37
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 22 22:56:58 2012 +0000
+
+    Merge remote branch 'indiebrain/master'
+
+[33mcommit 360359c5f3720fb96d2d6c22f793ba966e3e5ebc[m
+Merge: 8453574 26fa2cd
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 22 22:54:15 2012 +0000
+
+    Merge remote branch 'seejohnrun/master'
+
+[33mcommit 46afd37bec0ca76263227927608d7d2e0e298661[m
+Author: Aaron Kuehler <aaron.kuehler@gmail.com>
+Date:   Thu Mar 22 18:00:22 2012 -0400
+
+    create challenge level to stage individual hunks of a file for commit
+
+[33mcommit 26fa2cd4eb21f4f07548b3edb7ba50fe047bfa0e[m
+Author: John Crepezzi <john.crepezzi@gmail.com>
+Date:   Thu Mar 22 16:17:25 2012 -0400
+
+    Fix some formatting
+
+[33mcommit 84535744f1b7889beb0b79721e10f835a8fa68e7[m
+Author: John Crepezzi <john.crepezzi@gmail.com>
+Date:   Thu Mar 22 17:13:37 2012 -0300
+
+    Update levels/branch_at.rb
+
+[33mcommit eeba161dca77797d589102053da0b586f6a3b1db[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 21 21:06:44 2012 +0000
+
+    Windows support added, it works up until the commit_ammend.rb level
+
+[33mcommit 53088736d6bbe9cb415b0032bb4f9b76a4bffc21[m
+Merge: d019b02 7dcc3ab
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 21 11:27:08 2012 -0700
+
+    Merge pull request #32 from aq/master
+    
+    Remove an ambiguity for the level rename_commit
+
+[33mcommit 7dcc3ab8640a2958b892515d19113e5e5ff05bed[m
+Author: Antoine Qu'hen <antoinequhen@gmail.com>
+Date:   Wed Mar 21 10:04:53 2012 -0400
+
+    Remove the ambiguity for the level rename_commit
+
+[33mcommit d019b02e0b16f0c87a324d14d765e4f2821088cc[m
+Merge: 9714509 254f39f
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 21 01:44:03 2012 -0700
+
+    Merge pull request #30 from sethvincent/master
+    
+    a pull level for githug
+
+[33mcommit 254f39f5baf4ced7a90bcfc9c015a2b343d83166[m
+Author: sethvincent <sethvincent@gmail.com>
+Date:   Tue Mar 20 16:36:32 2012 -0700
+
+    add pull level
+
+[33mcommit 9714509115762e95414d930e936d95b536ea8990[m[33m ([m[1;33mtag: v0.1.7[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Mar 20 21:49:52 2012 +0000
+
+    version bump
+
+[33mcommit c71b71c8f51d12be70d35900788916a9fd0a87ca[m
+Merge: 6114dc0 4be0d25
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Tue Mar 20 14:50:41 2012 -0700
+
+    Merge pull request #29 from aq/master
+    
+    Add a level `rename commit`
+
+[33mcommit 4be0d25235c9af758f6bd4b2d4f623fee373fba4[m
+Author: Antoine Qu'hen <antoinequhen@gmail.com>
+Date:   Tue Mar 20 17:32:09 2012 -0400
+
+    Add a level `rename commit`
+
+[33mcommit 6114dc0ca27fb7282a2ad7e2a878d760d71709d3[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 19 19:41:47 2012 +0000
+
+    Update README.md
+
+[33mcommit ad10950a18bb4b9fdc1053860248a29ca62ca6e3[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 16:00:17 2012 +0000
+
+    updated README
+
+[33mcommit 2fe67613213a38e8b5f2a651facba4c87f6034ab[m[33m ([m[1;33mtag: v0.1.6[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:47:49 2012 +0000
+
+    Updated Message on the contribute level
+
+[33mcommit b4796c8b0ebfa042b82438b376b1a922e74a2c7e[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:45:45 2012 +0000
+
+    Added branch_at level and version bump
+
+[33mcommit bfe373cd5a4c7b4b382391ef0713f2841ee3d4b9[m
+Merge: 50a315e e9bfb8c
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:45:04 2012 +0000
+
+    Added branch_at level
+
+[33mcommit 50a315ebd7ebf80bc7be99d1ddeb000e2fdb2be8[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:38:24 2012 +0000
+
+    Updated test method to allow an error trace
+
+[33mcommit 8f0bf67e1e2e551bed02f5d5782a9d51c3e66e29[m
+Merge: b88759e 60f8396
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:37:21 2012 +0000
+
+    Merge remote branch 'dtrod/tag_level'
+
+[33mcommit b88759ec6ae5c6fc1b8f7c8a67d0048216450af6[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Sun Mar 18 15:00:30 2012 +0000
+
+    Added a method for testing the levels
+
+[33mcommit 60f8396faba63fb840262d8b3caae7772f3ec071[m
+Author: Dustin Rodrigues <dust.rod@gmail.com>
+Date:   Fri Mar 16 11:00:59 2012 -0700
+
+    added tag level
+
+[33mcommit e9bfb8c642d9d374f67d7b12a8e1c4d3ee08e933[m
+Author: manojlds <manojlds@gmail.com>
+Date:   Sat Mar 17 20:05:07 2012 -0700
+
+    Adding branch at level
+
+[33mcommit d5b8ba0880a5bb60342cc3fbca30ef6b2b7f727a[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 20:53:17 2012 +0000
+
+    Update README.md
+
+[33mcommit d657063b0440c5aba694be5bcd3c655d5b1cfdf7[m
+Merge: 374349f d44a7db
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 11:14:02 2012 -0700
+
+    Merge pull request #15 from dtrodrigues/gemfile_comment_error
+    
+    changed Gemfile comment to reflect new name of project
+
+[33mcommit d44a7dbc88dbc713b0110f365eb470b8b9b38c80[m
+Author: Dustin Rodrigues <dust.rod@gmail.com>
+Date:   Fri Mar 16 11:00:59 2012 -0700
+
+    changed Gemfile comment to reflect new name of project
+
+[33mcommit 374349f03b063b2fceb9ae5ab40e9d48d8f63b46[m
+Merge: 1e0c438 9ec368e
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 17:52:42 2012 +0000
+
+    Added rename level and updated to 0.1.5
+
+[33mcommit 1e0c4389e234388d028df1584815144b85a6ed97[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 17:39:39 2012 +0000
+
+    Added rake task for Travis CI
+
+[33mcommit 9ec368e32981867e8ac3dedd0608e42eff88cd09[m
+Author: Dustin Rodrigues <dust.rod@gmail.com>
+Date:   Fri Mar 16 10:39:55 2012 -0700
+
+    fixed bug in rename leve; oldFile.txt is now committed during setup
+
+[33mcommit dbac02a846b5ace087ad07ca13291117e2ce1ae7[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 17:30:17 2012 +0000
+
+    added rake as a runtime dependancy for travis
+
+[33mcommit a9398125c0117351db2ac91a7045cc03a1309dd8[m
+Merge: 4a8a597 9f70779
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 16:16:25 2012 +0000
+
+    added squash level
+
+[33mcommit 4a8a597074fc5b95262ebae36ffc546102877659[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 15:53:04 2012 +0000
+
+    added travis config
+
+[33mcommit 36f386cfcec23e224ca75009345d75c176bf9b5f[m
+Merge: cf34f08 1649eab
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 15:35:24 2012 +0000
+
+    Merge remote branch 'jkap/master'
+
+[33mcommit 9f70779aa605fa2b50bef1bd337b6e83e56b358e[m
+Author: David Pick <pickdavid@gmail.com>
+Date:   Fri Mar 16 08:09:26 2012 -0500
+
+    changing the number of required commits for squash from 1 to 2
+
+[33mcommit 6f6065b8f2a32c3ed5d598da78f7652fafcf87c8[m
+Author: Dustin Rodrigues <dust.rod@gmail.com>
+Date:   Fri Mar 16 02:45:30 2012 -0700
+
+    added rename level
+
+[33mcommit cf34f083ec9b28766c1c77b7f10c7001bba09704[m[33m ([m[1;33mtag: v0.1.4[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 08:57:15 2012 +0000
+
+    Fix for ruby 1.8.7
+
+[33mcommit f1c9f0985614dcd9b7db0f1a6621981ba156c14e[m[33m ([m[1;33mtag: v0.1.3[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 08:33:44 2012 +0000
+
+    version bump to 0.1.3
+
+[33mcommit 6af79b570beb1efcfa9a480a9b4d2f2e40bd4138[m
+Merge: d374113 b4b060c
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 08:31:11 2012 +0000
+
+    more levels and a version bump
+
+[33mcommit d374113463973b3aca5a33f54bafa1dbdd46b037[m
+Merge: e8f7cd9 0e8d117
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 08:19:30 2012 +0000
+
+    changed prompt in diff level
+
+[33mcommit e8f7cd9548259e79179006055c75b61d3faf7612[m
+Merge: bbd1bb4 50baa19
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 01:18:28 2012 -0700
+
+    Merge pull request #10 from tomstuart/patch-1
+    
+    Fix diff level
+
+[33mcommit bbd1bb4b00bdc561b9a9a02515f066c1692bddbf[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 08:13:57 2012 +0000
+
+    changed level order
+
+[33mcommit 991ae9ba52bba5bda73880ef00adab99283413cb[m
+Merge: c284575 de6b0dd
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 01:12:54 2012 -0700
+
+    Merge pull request #8 from akatz/master
+    
+    Added a level for git branch
+
+[33mcommit 0e8d1175d6ac1367c78aad4af14bf38756c07ed0[m
+Author: Tom Stuart <tom@experthuman.com>
+Date:   Fri Mar 16 08:09:29 2012 +0000
+
+    Clarify request wording in diff level
+    
+    Unless we say "number", it's not obvious how the line should be identified.
+
+[33mcommit 50baa190d6f8878e5b1b0ee9ee096609f3c82c1d[m
+Author: Tom Stuart <tom@experthuman.com>
+Date:   Fri Mar 16 08:07:13 2012 +0000
+
+    Fix diff level
+    
+    The diff starts at line 23 to provide context, but it's line 26 which has changed.
+
+[33mcommit b4b060ce586dc6233e11bbeb5271a08b188290a5[m
+Author: Dustin Rodrigues <dust.rod@gmail.com>
+Date:   Fri Mar 16 01:03:06 2012 -0700
+
+    added merge level
+
+[33mcommit c284575ca65925ffe594225100e5178433343854[m
+Merge: c359fdf af0afe9
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 01:02:07 2012 -0700
+
+    Merge pull request #4 from rmasters/master
+    
+    Tiny README fix
+
+[33mcommit de6b0dd4979842dbdd9f04580e908b5012be8b7c[m
+Author: Avrohom Katz <akatz@engineyard.com>
+Date:   Fri Mar 16 00:37:55 2012 -0400
+
+    branch level
+
+[33mcommit aaa41e3becce519c502078630dc1a7e4dd952043[m
+Author: David Pick <pickdavid@gmail.com>
+Date:   Thu Mar 15 21:33:26 2012 -0500
+
+    adding the squash level to the levels list
+
+[33mcommit 5cb66089cbecd6e1cee5d01aa5400ec3f6da2fdc[m
+Author: David Pick <pickdavid@gmail.com>
+Date:   Thu Mar 15 21:29:10 2012 -0500
+
+    adding squash level
+
+[33mcommit 1649eab6f7bf1aeef365b529b5cd4d2c95f24076[m
+Author: Josh Kaplan <josh@taprootcreative.com>
+Date:   Thu Mar 15 20:46:56 2012 -0400
+
+    Changed multiple hints to store index in profile
+    
+    I had to do some weirdness with the Level tests to have the index return
+    correctly in the stub, but it works there and also works for real.
+
+[33mcommit af0afe98f0320cb1106391efd790e27345df4d7f[m
+Author: Ross Masters <ross@rossmasters.com>
+Date:   Fri Mar 16 00:29:34 2012 +0000
+
+    Fix README typo (Commands)
+
+[33mcommit c359fdf86ca435b5c57bd352b52a090f1e769443[m[33m ([m[1;33mtag: v0.1.2[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 16 00:00:18 2012 +0000
+
+    version bump to 0.1.2
+
+[33mcommit 815f27039d5f7199def7793c3243f066829aaf41[m
+Merge: 17603d6 46fe7a5
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 15 16:57:46 2012 -0700
+
+    Merge pull request #3 from toastwaffle/master
+    
+    New level: Branch and Check Out
+
+[33mcommit 46fe7a56d47aaff7976ffc7b22d700ecafff8e08[m
+Author: Samuel Littley <samuel.littley@toastwaffle.com>
+Date:   Thu Mar 15 23:46:11 2012 +0000
+
+    Added level for branching and checking out
+
+[33mcommit cdb238ca02adf7becab57080bd5f6ba0c9e4ebdd[m
+Author: Josh Kaplan <josh@taprootcreative.com>
+Date:   Thu Mar 15 19:46:03 2012 -0400
+
+    Added the ability to have multiple hints for a level
+
+[33mcommit 17603d62b9725065a4f7f7d7fc0f752e00cd64f2[m[33m ([m[1;33mtag: v0.1.1[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 15 23:05:28 2012 +0000
+
+    Fixed bug in ruby 1.8.7 with class variables
+
+[33mcommit 88c402cb48fb0b9a333a4ab8fa6408c4b6b311a8[m[33m ([m[1;33mtag: v0.1.0[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 15 21:48:48 2012 +0000
+
+    New levels and hint prompt after 3 attempts
+
+[33mcommit 2f2e21f530eae06dd9755384a087a1f4f87697fa[m[33m ([m[1;33mtag: v0.0.10[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 14 22:39:58 2012 +0000
+
+    added 3 new levels and added a level loader
+
+[33mcommit 1621f85e9c12df251ae0e800a5a289fc1d0f8acb[m[33m ([m[1;33mtag: v0.0.9[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 14 19:20:18 2012 +0000
+
+    Renamed from gitscrub to githug
+
+[33mcommit f2b42311ad0b52a054c66ec978998c79dd0ba689[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 12 20:57:06 2012 +0000
+
+    fixed last level
+
+[33mcommit e1af8281e6332c85d8b704e108a020de07eb579d[m[33m ([m[1;33mtag: v0.0.8[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 12 20:54:34 2012 +0000
+
+    version bump
+
+[33mcommit c44fe308d68b7977a38a12d8d055902074ce1019[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 12 20:52:35 2012 +0000
+
+    added diff level
+
+[33mcommit c73e687de77f161e6f7bb495510304be827dd08c[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 12 19:21:41 2012 +0000
+
+    added status level
+
+[33mcommit c1a21d910fd09bde144540745fb727c47f851cd8[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Mon Mar 12 19:09:36 2012 +0000
+
+    added clone_to_folder level
+
+[33mcommit 939b64e13bf8004d020fde87d858bba5dc7c2de6[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 9 08:52:11 2012 +0000
+
+    updated README
+
+[33mcommit 87ec0cbc05947d25f5f7a40d8bf559d98f5cac9d[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 9 00:17:17 2012 +0000
+
+    added the all important clone level and made the blame level case-insensitive
+
+[33mcommit 2734b842375748b0ea2531a2baa498c8af3ee83d[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Fri Mar 9 00:03:29 2012 +0000
+
+    added clone level
+
+[33mcommit 6859eccf12b9a4c8e38046658237798a89fbd42b[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 23:32:07 2012 +0000
+
+    updated README
+
+[33mcommit f52db56aaa17ae59aac4bc0758c4c616df76b1d8[m[33m ([m[1;33mtag: v0.0.6[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 23:26:35 2012 +0000
+
+    version bump to 0.0.6
+
+[33mcommit 10b0a1429726fc976208e506a1ced381cbd25841[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 23:04:02 2012 +0000
+
+    added blame level
+
+[33mcommit a3578f3368cba0499cd39be124ed9e85976b5544[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 22:49:02 2012 +0000
+
+    added blame level
+
+[33mcommit 0b9019466f493af977a3ba622d422985a3101334[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 22:44:32 2012 +0000
+
+    added init_from_level
+
+[33mcommit cb898b72efd8c5bab7b339c3f912dc7a629dbc2e[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 22:37:27 2012 +0000
+
+    added a blame level
+
+[33mcommit f0c87b432cfaacab07b0874b8d0b4bba13185d2b[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 21:29:40 2012 +0000
+
+    Repository methods delegated to grit
+
+[33mcommit d1da927d48fe63f268708008d2f3cf1a6c664099[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 21:16:59 2012 +0000
+
+    added hints
+
+[33mcommit 864fd682527aea22f016f4114bcc9327e76c6ea2[m[33m ([m[1;33mtag: v0.0.5[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 20:53:21 2012 +0000
+
+    colorized outputs on completion/failure
+
+[33mcommit 5b4f6768082d5e5b9aba0a64f051c70e562b3e93[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 19:13:08 2012 +0000
+
+    added a contribution level and changed the levels to use names
+
+[33mcommit 4f763bd1bdd4a6db52f784397fd428fbd8c0647c[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 11:03:41 2012 +0000
+
+    Converted UI to a module and mixed it in so the levels can use its methods
+
+[33mcommit a1ea1d5166c9eff3c6ad59e2cf4560204f7e0645[m
+Merge: df0a25c 3a1b028
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 02:34:59 2012 -0800
+
+    Merge pull request #1 from Sid3Show/master
+    
+    Added a third level
+
+[33mcommit 3a1b028e26e5b55fc849a9b89cd3df3a0a79c589[m
+Author: Oli <oli@live.co.uk>
+Date:   Thu Mar 8 09:45:54 2012 +0000
+
+    Added third level
+
+[33mcommit df0a25c4f9e9163989817345251142468f5a8b78[m[33m ([m[1;33mtag: v0.0.4[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 00:09:09 2012 +0000
+
+    version bump
+
+[33mcommit 9b7a8d121160309381a05db7cbe29509285c9da7[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Thu Mar 8 00:07:52 2012 +0000
+
+    added a setup to the levels
+
+[33mcommit 89f4bd9f09c1bfb862ab134dc625def597277a3c[m[33m ([m[1;33mtag: v0.0.3[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 23:26:44 2012 +0000
+
+    added a 2nd level
+
+[33mcommit 87ae7faf8ebd047c08a310cfa59992b81559daba[m[33m ([m[1;33mtag: v0.0.2[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 22:50:59 2012 +0000
+
+    version bump
+
+[33mcommit 7ac520a24ff56c4c09ab29e0ab0e02980e7bb18b[m[33m ([m[1;33mtag: v0.0.1[m[33m)[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 22:48:33 2012 +0000
+
+    fixed broken test for level loading
+
+[33mcommit 2db46699966460841600a2146094323f5747881a[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 22:44:13 2012 +0000
+
+    First level working
+
+[33mcommit 56736fc333b675aac561b439048dce52d31bb323[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 20:46:52 2012 +0000
+
+    added most of the UI class
+
+[33mcommit 44bd099e9a646e4202dc2f1dc5b040d06d51d48c[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 19:33:50 2012 +0000
+
+    added scaffold for ui class
+
+[33mcommit 8d5ffb129c008e8a2d3c911d0e8fdf579400de19[m
+Author: Gary Rennie <webmaster@gazler.com>
+Date:   Wed Mar 7 19:15:17 2012 +0000
+
+    setup with rspec
